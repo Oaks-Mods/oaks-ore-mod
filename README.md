@@ -1,6 +1,6 @@
 # Oak's Ore Mod (Now updated for 1.17)
 ##### insert epic subtitle here!
-[![build](https://github.com/OakBricks/oaks-ore-mod/actions/workflows/build.yml/badge.svg)](https://github.com/OakBricks/oaks-ore-mod/actions/workflows/build.yml)
+![GitHub](https://img.shields.io/github/license/OakBricks/oaks-ore-mod?color=green&style=for-the-badge) ![For Fabric](https://img.shields.io/badge/Made%20For-Fabric-blue?style=for-the-badge&logo=java)
 
 This is a Fabric Mod for 1.17 (no snapshots! must wait for full relase for fabric api to stable!!!)
 
