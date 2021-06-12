@@ -14,7 +14,7 @@
   },
 
   "license": "GPL-3.0",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/oakores/icon.png",
 
   "environment": "*",
   "entrypoints": {
@@ -31,7 +31,7 @@
     "fabric": "*",
     "minecraft": "1.17.x",
     "java": ">=16",
-    "cloth-config": "*"
+    "cloth-config2": "*"
   },
   "suggests": {
     "modmenu": "*"
