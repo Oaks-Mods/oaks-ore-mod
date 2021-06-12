@@ -1,5 +1,5 @@
 {
-  "required": false,
+  "required": true,
   "minVersion": "0.8",
   "package": "org.oakbricks.oakores.mixin",
   "compatibilityLevel": "JAVA_16",
@@ -9,6 +9,6 @@
     "ExampleMixin"
   ],
   "injectors": {
-    "defaultRequire": 0
+    "defaultRequire": 1
   }
 }

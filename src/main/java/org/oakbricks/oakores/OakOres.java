@@ -3,6 +3,9 @@ package org.oakbricks.oakores;
 import net.fabricmc.api.ModInitializer;
 
 public class OakOres implements ModInitializer {
+
+	public static final String MOD_ID = "oakores";
+
 	@Override
 	public void onInitialize() {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
