@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "oakores:blocks/purpi_block",
+    "particle": "oakores:blocks/purpi_block"
+  }
+}
