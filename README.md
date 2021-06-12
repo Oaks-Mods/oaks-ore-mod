@@ -3,7 +3,7 @@
 
 This is a Fabric Mod for 1.17 (no snapshots! must wait for full relase for fabric api to stable!!!)
 
-Requires: [Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api) and [Cloth Config API](https://www.curseforge.com/minecraft/mc-mods/cloth-config) ([ModMenu](https://www.curseforge.com/minecraft/mc-mods/modmenu is recommended!)
+Requires: [Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api) and [Cloth Config API](https://www.curseforge.com/minecraft/mc-mods/cloth-config) ([ModMenu](https://www.curseforge.com/minecraft/mc-mods/modmenu) is recommended!)
 
 Please use IntelliJ IDEA, Eclipse is 💩!
 
