@@ -18,12 +18,13 @@ import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.heightprovider.UniformHeightProvider;
 import org.oakbricks.oakores.registry.BlockClass;
 
+import static org.oakbricks.oakores.OakOres.CONFIG;
 import static org.oakbricks.oakores.OakOres.MOD_ID;
 
 public class OreClass {
     private static ConfiguredFeature<?, ?> PURPI_ORE_OVERWORLD = Feature.ORE
             .configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, BlockClass.PURPI_ORE.getDefaultState(), 9))
-            .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.fixed(0), YOffset.fixed(64)))))
+            .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.fixed(CONFIG.minPurpiGenHeight), YOffset.fixed(CONFIG.maxPurpiGenHeight)))))
             .spreadHorizontally()
             .repeat(30);
     public static void initOres() {

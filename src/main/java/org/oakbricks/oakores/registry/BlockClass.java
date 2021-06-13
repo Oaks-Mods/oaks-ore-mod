@@ -36,9 +36,8 @@ public class BlockClass {
     public static void registerBlocks() {
 
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "purpi_block"), PURPI_BLOCK);
-        if (CONFIG.enableUnsupportedFeatures) {
-            Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "purpi_ore"), PURPI_ORE);
-        }
+
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "purpi_ore"), PURPI_ORE);
 
     }
 

@@ -7,5 +7,6 @@
   "item.oakores.purpi_leggings": "Purpi Leggings",
   "item.oakores.purpi_helmet": "Purpi Helmet",
   "text.autoconfig.oakores.option.generatePurpi": "Should Purpi generate in the world",
-  "text.autoconfig.oakores.title": "OakOres - Refabricated Config"
+  "text.autoconfig.oakores.title": "OakOres - Refabricated Config",
+  "oakbricks.oakores.console.init": "Oak's Ore Mod has been Initialized!"
 }

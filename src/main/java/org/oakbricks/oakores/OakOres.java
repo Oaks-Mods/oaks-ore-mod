@@ -6,6 +6,7 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
@@ -65,6 +66,6 @@ public class OakOres implements ModInitializer {
 		registerBlocks();
 		registerBlockItems();
 		registerArmorItems();
-		System.out.println("Oak's Ore Mod has been Initialized!");
+		System.out.println(new TranslatableText("oakbricks.oakores.console.init"));
 	}
 }
