@@ -10,14 +10,16 @@ import org.oakbricks.oakores.OakOres;
 public class ModConfig implements ConfigData {
 
     @ConfigEntry.Gui.RequiresRestart
-    public boolean generatePurpi = true;
+    public boolean generatePurpi = false;
 
+    @ConfigEntry.Gui.Excluded
     @ConfigEntry.Gui.RequiresRestart
     public float maxPurpiGenHeight = 20.0f;
 
+    @ConfigEntry.Gui.Excluded
     @ConfigEntry.Gui.RequiresRestart
     public float minPurpiGenHeight = 5.0f;
 
     @ConfigEntry.Gui.RequiresRestart
-    public boolean registerPurpiBlocks = true;
+    public boolean enableUnsupportedFeatures = false;
 }

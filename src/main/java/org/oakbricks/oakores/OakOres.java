@@ -5,11 +5,25 @@ import me.lortseam.completeconfig.gui.cloth.ClothConfigScreenBuilder;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
+import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.minecraft.block.Blocks;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.BuiltinRegistries;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryKey;
+import net.minecraft.world.gen.GenerationStep;
+import net.minecraft.world.gen.YOffset;
+import net.minecraft.world.gen.decorator.Decorator;
+import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.OreFeatureConfig;
+import net.minecraft.world.gen.heightprovider.UniformHeightProvider;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.oakbricks.oakores.config.ModConfig;
@@ -39,6 +53,16 @@ public class OakOres implements ModInitializer {
 			})
 			.build();
 
+	public static ConfiguredFeature<?, ?> ORE_PURPI_OVERWORLD = Feature.ORE
+			.configure(new OreFeatureConfig(
+					OreFeatureConfig.Rules.BASE_STONE_OVERWORLD,
+					BlockClass.PURPI_ORE.getDefaultState(),
+					9)) // vein size
+			.decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(0, 0, 64)))
+			.spreadHorizontally()
+			.repeat(12); // number of veins per chunk
+
+
 //	AutoConfig.register(ModConfig.class, GsonConfigSerializer::new);
 
 	@Override
@@ -47,6 +71,12 @@ public class OakOres implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 
+		//RegistryKey<ConfiguredFeature<?, ?>> oreWoolOverworld = RegistryKey.of(Registry.CONFIGURED_,
+		//		new Identifier("tutorial", "ore_wool_overworld"));
+		//Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, oreWoolOverworld.getValue(), ORE_PURPI_OVERWORLD);
+		//BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, oreWoolOverworld);
+
+        //Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(MOD_ID, "ore_purpi_overworld"), ORE_PURPI_OVERWORLD);
 
 		registerItems();
 		registerBlocks();
