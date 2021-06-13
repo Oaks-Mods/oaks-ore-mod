@@ -11,19 +11,18 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 
-public class PurpiOreRealOre extends Block{
+public class PurpiOre extends Block{
 
-    public PurpiOreRealOre(Settings settings) {
+    public PurpiOre(Settings settings) {
         super(settings);
     }
 
     protected int getExperienceWhenMined(Random random){
-        return MathHelper.nextInt(random, 0, 2);
+        return MathHelper.nextInt(random, 1, 2);
     }
-
-    public void onStacksDropped(BlockState state, ServerWorld world, BlockPos pos, ItemStack stack){
+    public void onStacksDropped(BlockState state, ServerWorld world,BlockPos pos, ItemStack stack){
         super.onStacksDropped(state, world, pos, stack);
-        if (EnchantmentHelper.getLevel(Enchantments.SILK_TOUCH, stack) == 0) {
+        if (EnchantmentHelper.getLevel(Enchantments.SILK_TOUCH, stack) == 0){
             int i = this.getExperienceWhenMined(world.random);
             if (i > 0) {
                 this.dropExperience(world, pos, i);

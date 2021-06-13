@@ -4,13 +4,13 @@
   "version": "${version}",
 
   "name": "Oak's Ore Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "description": "very simple ore mod for fabric 1.17, remake of my mcreator mod",
   "authors": [
     "OakBricks"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://github.com/OakBricks/oaks-ore-mod",
+    "sources": "https://github.com/OakBricks/oaks-ore-mod"
   },
 
   "license": "GPL-3.0",
@@ -35,8 +35,5 @@
     "minecraft": "1.17.x",
     "java": ">=16",
     "cloth-config2": "*"
-  },
-  "suggests": {
-    "modmenu": "*"
   }
 }
