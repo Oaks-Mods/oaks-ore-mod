@@ -20,6 +20,9 @@
   "entrypoints": {
     "main": [
       "org.oakbricks.oakores.OakOres"
+    ],
+    "modmenu": [
+      "org.oakbricks.oakores.config.ModMenuConfig"
     ]
   },
   "mixins": [
