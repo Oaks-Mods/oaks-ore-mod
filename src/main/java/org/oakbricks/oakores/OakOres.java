@@ -26,7 +26,7 @@ public class OakOres implements ModInitializer {
     public static final ModConfig CONFIG = AutoConfig.register(ModConfig.class, GsonConfigSerializer::new).getConfig();
 
     public static final ItemGroup MAIN_GROUP = FabricItemGroupBuilder.create(
-			new Identifier("tutorial", "other"))
+			new Identifier(MOD_ID, "main"))
 			.icon(() -> new ItemStack(BlockClass.PURPI_BLOCK))
 			.appendItems(stacks -> {
 				stacks.add(new ItemStack(BlockClass.PURPI_BLOCK));
