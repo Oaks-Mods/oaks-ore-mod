@@ -4,9 +4,9 @@
   "package": "org.oakbricks.oakores.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
+    "ArmorItemMixin"
   ],
   "client": [
-    "ExampleMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "oakores:items/purpi_boots_better_textures"
+  }
+}

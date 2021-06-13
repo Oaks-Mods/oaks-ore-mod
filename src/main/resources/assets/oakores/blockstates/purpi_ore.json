@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "oaksores:block/purpi_ore"
+      "model": "oakores:blocks/purpi_ore"
     }
   }
 }

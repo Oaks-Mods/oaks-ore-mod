@@ -3,6 +3,7 @@ package org.oakbricks.oakores;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.block.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -13,6 +14,7 @@ import org.oakbricks.oakores.registry.ItemClass;
 import static org.oakbricks.oakores.registry.ItemClass.registerBlockItems;
 import static org.oakbricks.oakores.registry.ItemClass.registerItems;
 import static org.oakbricks.oakores.registry.BlockClass.registerBlocks;
+import static org.oakbricks.oakores.registry.ItemClass.registerArmorItems;
 
 public class OakOres implements ModInitializer {
 
@@ -25,7 +27,11 @@ public class OakOres implements ModInitializer {
 			.appendItems(stacks -> {
 				stacks.add(new ItemStack(BlockClass.PURPI_BLOCK));
 				stacks.add(new ItemStack(BlockClass.PURPI_ORE));
-				stacks.add(new ItemStack(ItemClass.PUPRI));
+				stacks.add(new ItemStack(ItemClass.PURPI));
+				stacks.add(new ItemStack(ItemClass.PURPI_BOOTS));
+				stacks.add(new ItemStack(ItemClass.PURPI_LEGGINGS));
+				stacks.add(new ItemStack(ItemClass.PURPI_CHESTPLATE));
+				stacks.add(new ItemStack(ItemClass.PURPI_HELMET));
 			})
 			.build();
 
@@ -39,6 +45,7 @@ public class OakOres implements ModInitializer {
 		registerItems();
 		registerBlocks();
 		registerBlockItems();
-		System.out.println("Oak's Ore Mod Initalized!");
+		registerArmorItems();
+		System.out.println("Oak's Ore Mod has been Initialized!");
 	}
 }
