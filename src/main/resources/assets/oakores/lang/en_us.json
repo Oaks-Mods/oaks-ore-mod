@@ -6,7 +6,7 @@
   "item.oakores.purpi_chestplate": "Purpi Chestplate",
   "item.oakores.purpi_leggings": "Purpi Leggings",
   "item.oakores.purpi_helmet": "Purpi Helmet",
-  "text.autoconfig.oakores.option.generatePurpi": "Should Purpi generate in the world",
+  "text.autoconfig.oakores.option.purpiOreGenRetries": "How many times should Purpi Ores try to generate before world generation",
   "text.autoconfig.oakores.option.enableUnsupportedFeatures": "Enable Experimental Features",
   "text.autoconfig.oakores.option.maxPurpiGenHeight": "Maximum Purpi Ore World Gen Height",
   "text.autoconfig.oakores.option.minPurpiGenHeight": "Minimum Purpi Ore World Gen Height",

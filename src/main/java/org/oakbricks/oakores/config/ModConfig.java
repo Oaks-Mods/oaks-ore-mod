@@ -9,16 +9,18 @@ import org.oakbricks.oakores.OakOres;
 @Config.Gui.Background("minecraft:textures/block/oak_planks.png")
 public class ModConfig implements ConfigData {
 
-    /*@ConfigEntry.Gui.RequiresRestart
-    public boolean generatePurpi = true;*/
-
-    @ConfigEntry.Gui.Excluded
     @ConfigEntry.Gui.RequiresRestart
-    public int maxPurpiGenHeight = (int) 25;
+    public int purpiOreGenRetries = 30;
 
-    @ConfigEntry.Gui.Excluded
+    //@ConfigEntry.Gui.Excluded
     @ConfigEntry.Gui.RequiresRestart
-    public int minPurpiGenHeight = (int) 5;
+    public int maxPurpiGenHeight = (int) 32;
+
+    //@ConfigEntry.Gui.Excluded
+    @ConfigEntry.Gui.RequiresRestart
+    public int minPurpiGenHeight = (int) 0;
+
+
 
     /*@ConfigEntry.Gui.RequiresRestart
     public boolean enableUnsupportedFeatures = true;*/

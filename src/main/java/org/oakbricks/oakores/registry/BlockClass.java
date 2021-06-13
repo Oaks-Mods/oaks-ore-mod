@@ -20,7 +20,7 @@ import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 import org.oakbricks.oakores.blocks.PurpiOre;
 
-import static org.oakbricks.oakores.OakOres.CONFIG;
+//import static org.oakbricks.oakores.OakOres.CONFIG;
 import static org.oakbricks.oakores.OakOres.MOD_ID;
 
 public class BlockClass {
