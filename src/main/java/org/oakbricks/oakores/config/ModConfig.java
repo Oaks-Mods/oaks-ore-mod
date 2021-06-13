@@ -3,20 +3,21 @@ package org.oakbricks.oakores.config;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
+import org.oakbricks.oakores.OakOres;
 
-@Config(name = "oakores")
+@Config(name = OakOres.MOD_ID)
+@Config.Gui.Background("minecraft:textures/block/oak_planks.png")
 public class ModConfig implements ConfigData {
-    boolean EnablePurpi = true;
-    boolean toggleB = false;
 
-    @ConfigEntry.Gui.CollapsibleObject
-    InnerStuff stuff = new InnerStuff();
+    @ConfigEntry.Gui.RequiresRestart
+    public boolean generatePurpi = true;
 
-    @ConfigEntry.Gui.Excluded
-    InnerStuff invisibleStuff = new InnerStuff();
+    @ConfigEntry.Gui.RequiresRestart
+    public float maxPurpiGenHeight = 20.0f;
 
-    static class InnerStuff {
-        int a = 0;
-        int b = 1;
-    }
+    @ConfigEntry.Gui.RequiresRestart
+    public float minPurpiGenHeight = 5.0f;
+
+    @ConfigEntry.Gui.RequiresRestart
+    public boolean registerPurpiBlocks = true;
 }

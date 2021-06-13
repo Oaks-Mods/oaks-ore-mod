@@ -1,4 +1,11 @@
 {
   "block.oakores.purpi_block": "Block of Purpi",
-  "block.oakores.purpi_ore": "Purpi Ore"
+  "block.oakores.purpi_ore": "Purpi Ore",
+  "item.oakores.purpi": "Purpi",
+  "item.oakores.purpi_boots": "Purpi Boots",
+  "item.oakores.purpi_chestplate": "Purpi Chestplate",
+  "item.oakores.purpi_leggings": "Purpi Leggings",
+  "item.oakores.purpi_helmet": "Purpi Helmet",
+  "text.autoconfig.oakores.option.generatePurpi": "Should Purpi generate in the world",
+  "text.autoconfig.oakores.title": "OakOres - Refabricated Config"
 }
