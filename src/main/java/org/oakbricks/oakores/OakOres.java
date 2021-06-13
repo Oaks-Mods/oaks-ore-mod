@@ -2,23 +2,26 @@ package org.oakbricks.oakores;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
-import net.minecraft.block.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.oakbricks.oakores.registry.BlockClass;
 import org.oakbricks.oakores.registry.ItemClass;
 
-import static org.oakbricks.oakores.registry.ItemClass.registerBlockItems;
-import static org.oakbricks.oakores.registry.ItemClass.registerItems;
 import static org.oakbricks.oakores.registry.BlockClass.registerBlocks;
-import static org.oakbricks.oakores.registry.ItemClass.registerArmorItems;
+import static org.oakbricks.oakores.registry.ItemClass.*;
 
 public class OakOres implements ModInitializer {
 
 	public static final String MOD_ID = "oakores";
+	public static final Logger LOGGER = LogManager.getLogger();
+	private static Settings settings;
+
+	public static Settings getSettings() {
+		return settings;
+	}
 
 
 	public static final ItemGroup MAIN_GROUP = FabricItemGroupBuilder.create(
@@ -41,6 +44,10 @@ public class OakOres implements ModInitializer {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
+
+		settings = new Settings();
+		settings.load();
+
 
 		registerItems();
 		registerBlocks();

@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "###",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "oakores:purpi"
+        }
+    },
+    "result": {
+        "item": "oakores:purpi_block",
+        "count": 1
+    }
+}

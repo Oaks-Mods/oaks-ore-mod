@@ -1,0 +1,9 @@
+{
+    "type": "minecraft:blasting",
+    "ingredient": {
+        "item": "oakores:purpi_ore"
+    },
+    "result": "oakores:purpi",
+    "experience": 5,
+    "cookingtime": 160
+}
