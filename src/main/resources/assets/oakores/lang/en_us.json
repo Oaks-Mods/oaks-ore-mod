@@ -7,6 +7,14 @@
   "item.oakores.purpi_leggings": "Purpi Leggings",
   "item.oakores.purpi_helmet": "Purpi Helmet",
   "text.autoconfig.oakores.option.generatePurpi": "Should Purpi generate in the world",
+  "text.autoconfig.oakores.option.enableUnsupportedFeatures": "Enable Experimental Features",
+  "text.autoconfig.oakores.option.maxPurpiGenHeight": "Maximum Purpi Ore World Gen Height",
+  "text.autoconfig.oakores.option.minPurpiGenHeight": "Minimum Purpi Ore World Gen Height",
   "text.autoconfig.oakores.title": "OakOres - Refabricated Config",
-  "oakbricks.oakores.console.init": "Oak's Ore Mod has been Initialized!"
+  "oakbricks.oakores.console.init": "Oak's Ore Mod has been Initialized!",
+  "item.oakores.purpi_sword": "Purpi Sword",
+  "item.oakores.purpi_shovel": "Purpi Shovel",
+  "item.oakores.purpi_pickaxe": "Purpi Pickaxe",
+  "item.oakores.purpi_axe": "Purpi Axe",
+  "item.oakores.purpi_hoe": "Purpi Hoe"
 }

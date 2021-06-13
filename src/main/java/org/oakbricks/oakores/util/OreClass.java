@@ -18,8 +18,7 @@ import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.heightprovider.UniformHeightProvider;
 import org.oakbricks.oakores.registry.BlockClass;
 
-import static org.oakbricks.oakores.OakOres.CONFIG;
-import static org.oakbricks.oakores.OakOres.MOD_ID;
+import static org.oakbricks.oakores.OakOres.*;
 
 public class OreClass {
     private static ConfiguredFeature<?, ?> PURPI_ORE_OVERWORLD = Feature.ORE

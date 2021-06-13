@@ -25,9 +25,9 @@ import static org.oakbricks.oakores.OakOres.MOD_ID;
 
 public class BlockClass {
 
-    public static final Block PURPI_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).breakByTool(FabricToolTags.PICKAXES, 3).strength(3.5f, 20.5f).requiresTool().sounds(BlockSoundGroup.METAL));
+    public static final Block PURPI_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).breakByTool(FabricToolTags.PICKAXES).strength(3.5f, 20.5f).requiresTool().sounds(BlockSoundGroup.METAL));
 
-    public static final Block PURPI_ORE = new PurpiOre(FabricBlockSettings.of(Material.STONE).requiresTool().breakByTool(FabricToolTags.PICKAXES, 3).sounds(BlockSoundGroup.STONE).strength(1.75f, 10.25f));
+    public static final Block PURPI_ORE = new PurpiOre(FabricBlockSettings.copy(Blocks.STONE).strength(3.5f, 10.25f).requiresTool().sounds(BlockSoundGroup.STONE));
 
     //public static final Block PURPI_ORE = new Block(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).strength(2.5f, 10.5f).requiresTool().sounds(BlockSoundGroup.STONE));
 
@@ -36,7 +36,6 @@ public class BlockClass {
     public static void registerBlocks() {
 
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "purpi_block"), PURPI_BLOCK);
-
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "purpi_ore"), PURPI_ORE);
 
     }

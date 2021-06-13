@@ -13,8 +13,7 @@ import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import org.oakbricks.oakores.OakOres;
 
-import static org.oakbricks.oakores.OakOres.CONFIG;
-import static org.oakbricks.oakores.OakOres.MOD_ID;
+import static org.oakbricks.oakores.OakOres.*;
 
 public class ItemClass {
 
@@ -36,9 +35,7 @@ public class ItemClass {
     public static void registerBlockItems() {
 
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "purpi_block"), new BlockItem(BlockClass.PURPI_BLOCK, new FabricItemSettings().group(OakOres.MAIN_GROUP)));
-        if (CONFIG.enableUnsupportedFeatures) {
-            Registry.register(Registry.ITEM, new Identifier(MOD_ID, "purpi_ore"), new BlockItem(BlockClass.PURPI_ORE, new FabricItemSettings().group(OakOres.MAIN_GROUP)));
-        }
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "purpi_ore"), new BlockItem(BlockClass.PURPI_ORE, new FabricItemSettings().group(OakOres.MAIN_GROUP)));
 
     }
 
