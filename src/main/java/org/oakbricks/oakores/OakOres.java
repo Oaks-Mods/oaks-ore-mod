@@ -87,15 +87,15 @@ public class OakOres implements ModInitializer {
 
 		if (CONFIG.enableDebugFeatures) {
 			CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
-				dispatcher.register(literal("oakores_info_purpi_configs").executes(context -> {
-					System.out.println(CONFIG.maxPurpiGenHeight + "," + CONFIG.minPurpiGenHeight + "," + CONFIG.purpiOreGenRetries);
+				dispatcher.register(literal("oakores_info_purpi_configs").executes(ctx -> {
+                    ctx.getSource().sendFeedback(new LiteralText(CONFIG.maxPurpiGenHeight + "," + CONFIG.minPurpiGenHeight + "," + CONFIG.purpiOreGenRetries), false);
 					return 1;
 				}));
 			});
 		} else {
 			CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
-				dispatcher.register(literal("oakores_info_purpi_configs").executes(context -> {
-					System.out.println("For Debug Commands Please Enable 'enableDebugFeatures' in the OakOres config");
+				dispatcher.register(literal("oakores_info_purpi_configs").executes(ctx -> {
+                    ctx.getSource().sendFeedback(new LiteralText("For Debug Commands Please Enable 'enableDebugFeatures' in the OakOres config"), false);
 					return 1;
 				}));
 			});
@@ -111,8 +111,8 @@ public class OakOres implements ModInitializer {
 			});
 		} else {
 			CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
-				dispatcher.register(literal("oakores_debug_info_lead_configs").executes(context -> {
-					System.out.println("For Debug Commands Please Enable 'enableDebugFeatures' in the OakOres config");
+				dispatcher.register(literal("oakores_debug_info_lead_configs").executes(ctx -> {
+                    ctx.getSource().sendFeedback(new LiteralText("For Debug Commands Please Enable 'enableDebugFeatures' in the OakOres config"), false);
 					return 1;
 				}));
 			});
