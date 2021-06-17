@@ -3,7 +3,7 @@
 # certain platforms or Java versions, and provides a first line of defence
 # against bad commits.
 
-name: CI Latest
+name: CI Latest 1.16.5
 # on: [pull_request, push]
 on:
   push:
