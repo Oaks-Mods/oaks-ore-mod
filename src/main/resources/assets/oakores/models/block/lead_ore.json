@@ -1,0 +1,6 @@
+{
+  "parent": "oakores:block/layered_ore_block",
+  "textures": {
+    "1": "oakores:blocks/ore_layer_templates/ore_layer_4"
+  }
+}
