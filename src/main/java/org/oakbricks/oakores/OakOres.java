@@ -7,14 +7,10 @@ import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
-import net.minecraft.client.gui.hud.ChatHud;
-import net.minecraft.client.option.ChatVisibility;
-import net.minecraft.client.util.ChatMessages;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.text.LiteralText;
 import net.minecraft.text.TranslatableText;
-import net.minecraft.util.ChatUtil;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
@@ -37,6 +33,7 @@ import org.oakbricks.oakores.tools.RegisterTools;
 import static net.minecraft.server.command.CommandManager.literal;
 import static org.oakbricks.oakores.registry.BlockClass.registerBlocks;
 import static org.oakbricks.oakores.registry.ItemClass.*;
+import static org.oakbricks.oakores.tools.RegisterTools.registerTools;
 //import static org.oakbricks.oakores.util.OreClass.*;
 
 //don't remove these you'll break most of the mod
@@ -63,14 +60,22 @@ public class OakOres implements ModInitializer {
 				stacks.add(new ItemStack(RegisterTools.PURPI_HOE));
 				stacks.add(new ItemStack(RegisterTools.PURPI_SWORD));
 				stacks.add(new ItemStack(RegisterTools.PURPI_SPADE));
+				stacks.add(new ItemStack(BlockClass.LEAD_ORE));
 			})
 			.build();
 
 	private static ConfiguredFeature<?, ?> PURPI_ORE_OVERWORLD = Feature.ORE
-			.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, BlockClass.PURPI_ORE.getDefaultState(), 6))
-			.decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.fixed(Integer.parseInt("5")), YOffset.fixed(Integer.parseInt("28"))))))
+			.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, BlockClass.PURPI_ORE.getDefaultState(), 6)) /* TODO: Make this configurable */
+			.decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.fixed(Integer.parseInt("5")), YOffset.fixed(Integer.parseInt("28")))))) /* TODO: Make this configurable */
 			.spreadHorizontally()
-			.repeat(Integer.parseInt("25"));
+			.repeat(Integer.parseInt("10")); //TODO: Make this configurable
+
+	//LEAD ORE WORLD GEN
+	private static ConfiguredFeature<?, ?> LEAD_ORE_OVERWORLD = Feature.ORE
+			.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, BlockClass.LEAD_ORE.getDefaultState(), 6)) /* TODO: Make this configurable */
+			.decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.fixed(Integer.parseInt("0")), YOffset.fixed(Integer.parseInt("48")))))) /* TODO: Make this configurable */
+			.spreadHorizontally()
+			.repeat(Integer.parseInt("25")); //TODO: Make this configurable
 
 
 	@Override
@@ -79,23 +84,73 @@ public class OakOres implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 
-		CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
-					dispatcher.register(literal("oakores_debug_info").executes(context -> {
-						System.out.println(CONFIG.maxPurpiGenHeight + "," + CONFIG.minPurpiGenHeight + "," + CONFIG.purpiOreGenRetries);
-						return 1;
-					}));
-				});
+		if (CONFIG.enableDebugFeatures) {
+			CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
+				dispatcher.register(literal("oakores_debug_info_purpi_configs").executes(context -> {
+					System.out.println(CONFIG.maxPurpiGenHeight + "," + CONFIG.minPurpiGenHeight + "," + CONFIG.purpiOreGenRetries);
+					return 1;
+				}));
+			});
+		} else {
+			CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
+				dispatcher.register(literal("oakores_debug_info_purpi_configs").executes(context -> {
+					System.out.println("For Debug Commands Please Enable 'enableDebugFeatures' in the OakOres config");
+					return 1;
+				}));
+			});
+		};
 
+		if (CONFIG.enableDebugFeatures) {
+			CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
+				dispatcher.register(literal("oakores_debug_info_lead_configs").executes(context -> {
+					System.out.println(CONFIG.maxLeadGenHeight + "," + CONFIG.minLeadGenHeight + "," + CONFIG.leadOreGenRetries);
+					return 1;
+				}));
+			});
+		} else {
+			CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
+				dispatcher.register(literal("oakores_debug_info_lead_configs").executes(context -> {
+					System.out.println("For Debug Commands Please Enable 'enableDebugFeatures' in the OakOres config");
+					return 1;
+				}));
+			});
+		}
+
+		if (CONFIG.enableUnsupportedFeatures) {
+			CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
+				dispatcher.register(literal("oakores_dont_use_yet_config").executes(context -> {
+					if (!dedicated) {
+						AutoConfig.getGuiRegistry(ModConfig.class);
+					}
+					return 1;
+				}));
+			});
+		} else {
+			CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
+				dispatcher.register(literal("oakores_dont_use_yet_config").executes(ctx -> {
+					if (!dedicated) {
+						ctx.getSource().sendFeedback(new LiteralText("Please enable Exirimental"), false);
+					}
+					return 1;
+				}));
+			});
+		}
+
+		//Registers Purpi Ore world gen
 		RegistryKey<ConfiguredFeature<?, ?>> purpiOreOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY, new Identifier(MOD_ID, "purpi_ore_overworld"));
 		Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, purpiOreOverworld.getValue(), PURPI_ORE_OVERWORLD);
 		BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, purpiOreOverworld);
 
-        //FOR CONTRIBUTORS: please make atleast 90% of modified classes/voids with names that are easy to understand!
+		RegistryKey<ConfiguredFeature<?, ?>> leadOreOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY, new Identifier(MOD_ID, "lead_ore_overworld"));
+		Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, leadOreOverworld.getValue(), LEAD_ORE_OVERWORLD);
+		BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, leadOreOverworld);
+
+        //FOR CONTRIBUTORS: please make at least 90% of modified classes/voids with names that are easy to understand!
 		registerItems();
 		registerBlocks();
 		registerBlockItems();
 		registerArmorItems();
-		//initOres();
+        registerTools();
 		System.out.println(new TranslatableText("oakbricks.oakores.console.init"));
 	};
 }

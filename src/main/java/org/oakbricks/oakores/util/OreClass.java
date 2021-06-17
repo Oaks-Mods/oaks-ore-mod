@@ -1,3 +1,7 @@
+/* Replaced by Lines 69 - 73 and Lines 89 - 91 in OakOres.java (Main Class) */
+//
+//TODO: REMOVE THIS CLASS
+//
 //package org.oakbricks.oakores.util;
 //
 //import net.fabricmc.fabric.api.biome.v1.BiomeModifications;

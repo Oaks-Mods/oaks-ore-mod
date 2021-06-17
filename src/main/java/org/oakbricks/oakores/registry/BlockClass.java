@@ -18,6 +18,7 @@ import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
+import org.oakbricks.oakores.blocks.LeadOre;
 import org.oakbricks.oakores.blocks.PurpiOre;
 
 //import static org.oakbricks.oakores.OakOres.CONFIG;
@@ -29,6 +30,10 @@ public class BlockClass {
 
     public static final Block PURPI_ORE = new PurpiOre(FabricBlockSettings.copy(Blocks.STONE).strength(3.5f, 10.25f).requiresTool().sounds(BlockSoundGroup.STONE));
 
+    public static final Block LEAD_ORE = new LeadOre(FabricBlockSettings.copy(Blocks.STONE).strength(5.85f, 8.3f).requiresTool().sounds(BlockSoundGroup.STONE));
+
+    public static final Block LEAD_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).breakByTool(FabricToolTags.PICKAXES).strength(5.5f, 17.5f).requiresTool().sounds(BlockSoundGroup.METAL));
+
     //public static final Block PURPI_ORE = new Block(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).strength(2.5f, 10.5f).requiresTool().sounds(BlockSoundGroup.STONE));
 
     //public static final Block PURPI_ORE = PurpiOre(FabricBlockSettings.copyOf(Blocks.DIAMOND_ORE).requiresTool().breakByTool(FabricToolTags.PICKAXES).sounds(BlockSoundGroup.STONE).strength(3.0f, 3.0f));
@@ -37,7 +42,8 @@ public class BlockClass {
 
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "purpi_block"), PURPI_BLOCK);
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "purpi_ore"), PURPI_ORE);
-
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "lead_ore"), LEAD_ORE);
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "lead_block"), LEAD_BLOCK);
     }
 
 

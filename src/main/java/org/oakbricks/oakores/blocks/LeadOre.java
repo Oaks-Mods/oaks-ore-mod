@@ -11,14 +11,14 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 
-public class PurpiOre extends Block{
+public class LeadOre extends Block{
 
-    public PurpiOre(Settings settings) {
+    public LeadOre(Settings settings) {
         super(settings);
     }
 
     protected int getExperienceWhenMined(Random random){
-        return MathHelper.nextInt(random, 3, 9);
+        return MathHelper.nextInt(random, 4, 6);
     }
     public void onStacksDropped(BlockState state, ServerWorld world,BlockPos pos, ItemStack stack){
         super.onStacksDropped(state, world, pos, stack);
