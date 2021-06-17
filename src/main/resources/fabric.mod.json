@@ -20,9 +20,6 @@
   "entrypoints": {
     "main": [
       "org.oakbricks.oakores.OakOres"
-    ],
-    "modmenu": [
-      "org.oakbricks.oakores.config.ModMenuConfig"
     ]
   },
   "mixins": [
@@ -34,6 +31,5 @@
     "fabric": "*",
     "minecraft": "1.16.5",
     "java": ">=8",
-    "cloth-config2": "*"
   }
 }
