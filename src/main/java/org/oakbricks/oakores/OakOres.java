@@ -87,14 +87,14 @@ public class OakOres implements ModInitializer {
 
 		if (CONFIG.enableDebugFeatures) {
 			CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
-				dispatcher.register(literal("oakores_debug_info_purpi_configs").executes(context -> {
+				dispatcher.register(literal("oakores_info_purpi_configs").executes(context -> {
 					System.out.println(CONFIG.maxPurpiGenHeight + "," + CONFIG.minPurpiGenHeight + "," + CONFIG.purpiOreGenRetries);
 					return 1;
 				}));
 			});
 		} else {
 			CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
-				dispatcher.register(literal("oakores_debug_info_purpi_configs").executes(context -> {
+				dispatcher.register(literal("oakores_info_purpi_configs").executes(context -> {
 					System.out.println("For Debug Commands Please Enable 'enableDebugFeatures' in the OakOres config");
 					return 1;
 				}));
@@ -103,8 +103,9 @@ public class OakOres implements ModInitializer {
 
 		if (CONFIG.enableDebugFeatures) {
 			CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
-				dispatcher.register(literal("oakores_debug_info_lead_configs").executes(context -> {
-					System.out.println(CONFIG.maxLeadGenHeight + "," + CONFIG.minLeadGenHeight + "," + CONFIG.leadOreGenRetries);
+				dispatcher.register(literal("oakores_debug_info_lead_configs").executes(ctx -> {
+					//System.out.println(CONFIG.maxLeadGenHeight + "," + CONFIG.minLeadGenHeight + "," + CONFIG.leadOreGenRetries);
+					ctx.getSource().sendFeedback(new LiteralText(CONFIG.maxLeadGenHeight + "," + CONFIG.minLeadGenHeight + "," + CONFIG.leadOreGenRetries), false);
 					return 1;
 				}));
 			});
