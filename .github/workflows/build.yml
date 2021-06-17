@@ -3,8 +3,12 @@
 # certain platforms or Java versions, and provides a first line of defence
 # against bad commits.
 
-name: build
-on: [pull_request, push]
+name: CI Latest
+# on: [pull_request, push]
+on:
+  push:
+    branches:
+      - 1.17
 
 jobs:
   build:
