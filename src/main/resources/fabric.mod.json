@@ -4,7 +4,7 @@
   "version": "${version}",
 
   "name": "Oak's Ore Mod",
-  "description": "very simple ore mod for fabric 1.17, remake of my mcreator mod",
+  "description": "very simple ore mod for fabric 1.16.5, remake of my mcreator mod",
   "authors": [
     "OakBricks"
   ],
@@ -32,8 +32,8 @@
   "depends": {
     "fabricloader": ">=0.11.3",
     "fabric": "*",
-    "minecraft": "1.17.x",
-    "java": ">=16",
+    "minecraft": "1.16.5",
+    "java": ">=8",
     "cloth-config2": "*"
   }
 }
