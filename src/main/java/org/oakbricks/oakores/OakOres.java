@@ -2,6 +2,7 @@ package org.oakbricks.oakores;
 
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
+import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
@@ -42,7 +43,7 @@ public class OakOres implements ModInitializer {
 
 	public static final String MOD_ID = "oakores";
 	public static final Logger LOGGER = LogManager.getLogger();
-    public static final ModConfig CONFIG = AutoConfig.register(ModConfig.class, GsonConfigSerializer::new).getConfig();
+    public static final ModConfig CONFIG = AutoConfig.register(ModConfig.class, Toml4jConfigSerializer::new).getConfig();
 
 	public static final ItemGroup MAIN_GROUP = FabricItemGroupBuilder.create(
 			new Identifier(MOD_ID, "main"))
