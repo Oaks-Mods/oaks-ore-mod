@@ -1,8 +1,5 @@
 package org.oakbricks.oakores;
 
-import me.shedaniel.autoconfig.AutoConfig;
-import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
-import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
@@ -26,7 +23,6 @@ import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.heightprovider.UniformHeightProvider;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.oakbricks.oakores.config.ModConfig;
 import org.oakbricks.oakores.registry.BlockClass;
 import org.oakbricks.oakores.registry.ItemClass;
 import org.oakbricks.oakores.tools.RegisterTools;
@@ -43,7 +39,6 @@ public class OakOres implements ModInitializer {
 
 	public static final String MOD_ID = "oakores";
 	public static final Logger LOGGER = LogManager.getLogger();
-    public static final ModConfig CONFIG = AutoConfig.register(ModConfig.class, Toml4jConfigSerializer::new).getConfig();
 
 	public static final ItemGroup MAIN_GROUP = FabricItemGroupBuilder.create(
 			new Identifier(MOD_ID, "main"))
@@ -85,58 +80,6 @@ public class OakOres implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 
-		if (CONFIG.enableDebugFeatures) {
-			CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
-				dispatcher.register(literal("oakores_debug_info_purpi_configs").executes(context -> {
-					System.out.println(CONFIG.maxPurpiGenHeight + "," + CONFIG.minPurpiGenHeight + "," + CONFIG.purpiOreGenRetries);
-					return 1;
-				}));
-			});
-		} else {
-			CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
-				dispatcher.register(literal("oakores_debug_info_purpi_configs").executes(context -> {
-					System.out.println("For Debug Commands Please Enable 'enableDebugFeatures' in the OakOres config");
-					return 1;
-				}));
-			});
-		};
-
-		if (CONFIG.enableDebugFeatures) {
-			CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
-				dispatcher.register(literal("oakores_debug_info_lead_configs").executes(context -> {
-					System.out.println(CONFIG.maxLeadGenHeight + "," + CONFIG.minLeadGenHeight + "," + CONFIG.leadOreGenRetries);
-					return 1;
-				}));
-			});
-		} else {
-			CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
-				dispatcher.register(literal("oakores_debug_info_lead_configs").executes(context -> {
-					System.out.println("For Debug Commands Please Enable 'enableDebugFeatures' in the OakOres config");
-					return 1;
-				}));
-			});
-		}
-
-		if (CONFIG.enableUnsupportedFeatures) {
-			CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
-				dispatcher.register(literal("oakores_dont_use_yet_config").executes(context -> {
-					if (!dedicated) {
-						AutoConfig.getGuiRegistry(ModConfig.class);
-					}
-					return 1;
-				}));
-			});
-		} else {
-			CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
-				dispatcher.register(literal("oakores_dont_use_yet_config").executes(ctx -> {
-					if (!dedicated) {
-						ctx.getSource().sendFeedback(new LiteralText("Please enable Exirimental"), false);
-					}
-					return 1;
-				}));
-			});
-		}
-
 		//Registers Purpi Ore world gen
 		RegistryKey<ConfiguredFeature<?, ?>> purpiOreOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY, new Identifier(MOD_ID, "purpi_ore_overworld"));
 		Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, purpiOreOverworld.getValue(), PURPI_ORE_OVERWORLD);
@@ -152,6 +95,6 @@ public class OakOres implements ModInitializer {
 		registerBlockItems();
 		registerArmorItems();
         registerTools();
-		System.out.println(new TranslatableText("oakbricks.oakores.console.init"));
+		System.out.println("idk what to put here - OakOres");
 	};
 }
