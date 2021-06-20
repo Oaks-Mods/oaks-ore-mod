@@ -2,7 +2,7 @@
 	"credit": "Made with Blockbench",
 	"textures": {
 		"0": "minecraft:block/stone",
-		"particle": "oakores:block/stone"
+		"particle": "minecraft:block/stone"
 	},
 	"elements": [
 		{
