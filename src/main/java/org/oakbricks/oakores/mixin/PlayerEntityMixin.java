@@ -36,6 +36,10 @@ public abstract class PlayerEntityMixin {
     @Shadow
     public abstract ItemStack getOffHandStack();
 
+    public Entity entity;
+
+    public World world;
+
     public abstract int maxLeadTimeAllowed();
 
     public int ticks;
@@ -46,7 +50,7 @@ public abstract class PlayerEntityMixin {
     }
 
     @Inject(at = @At("HEAD"), method = "tick")
-    public void leadOnTick(CallbackInfo ci, World world, Entity entity) {
+    public void leadOnTick(CallbackInfo ci) {
 
         if (this.getMainHandStack().isOf(ItemClass.LEAD_ROCK) || getOffHandStack().isOf(ItemClass.LEAD_ROCK) && this.ticks == this.maxLeadTimeAllowed() && world.getDifficulty() != Difficulty.PEACEFUL) {
 
