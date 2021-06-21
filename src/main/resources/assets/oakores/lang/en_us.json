@@ -16,5 +16,9 @@
   "item.oakores.purpi_shovel": "Purpi Shovel",
   "item.oakores.purpi_pickaxe": "Purpi Pickaxe",
   "item.oakores.purpi_axe": "Purpi Axe",
-  "item.oakores.purpi_hoe": "Purpi Hoe"
+  "item.oakores.purpi_hoe": "Purpi Hoe",
+  "itemGroup.oakores.main": "OakOres - Refabricated",
+  "block.oakores.lead_ore": "Lead Ore",
+  "block.oakores.deepslate_lead_ore": "Deepslate Lead Ore",
+  "block.oakores.lead_block": "Lead Block"
 }

@@ -10,27 +10,27 @@ public class PurpiToolMaterial implements ToolMaterial {
 
     @Override
     public int getDurability() {
-        return 874;
+        return 5000;
     }
 
     @Override
     public float getMiningSpeedMultiplier() {
-        return 5.5f;
+        return 6f;
     }
 
     @Override
     public float getAttackDamage() {
-        return 8.5f;
+        return 8f;
     }
 
     @Override
     public int getMiningLevel() {
-        return 0;
+        return 4;
     }
 
     @Override
     public int getEnchantability() {
-        return 27;
+        return 20;
     }
 
     @Override

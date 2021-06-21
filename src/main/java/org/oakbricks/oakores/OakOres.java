@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.LiteralText;
@@ -62,6 +63,8 @@ public class OakOres implements ModInitializer {
 				stacks.add(new ItemStack(RegisterTools.PURPI_SWORD));
 				stacks.add(new ItemStack(RegisterTools.PURPI_SPADE));
 				stacks.add(new ItemStack(BlockClass.LEAD_ORE));
+				stacks.add(new ItemStack(BlockClass.DEEPSLATE_LEAD_ORE));
+				stacks.add(new ItemStack(BlockClass.LEAD_BLOCK));
 			})
 			.build();
 

@@ -1,6 +1,7 @@
 {
-  "parent": "oakores:block/layered_ore_block",
+  "parent": "block/cube_all",
   "textures": {
-    "1": "oakores:blocks/ore_layer_templates/ore_layer_4"
+    "all": "oakores:blocks/lead_ore",
+    "particle": "oakores:blocks/lead_ore"
   }
 }

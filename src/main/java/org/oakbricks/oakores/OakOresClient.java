@@ -8,7 +8,7 @@ public class OakOresClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
 
-        ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> 0x444f53, BlockClass.LEAD_BLOCK);
+        //ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> 0x444f53, BlockClass.LEAD_BLOCK);
 
     }
 

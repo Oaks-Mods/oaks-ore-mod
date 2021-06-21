@@ -37,7 +37,8 @@ public class ItemClass {
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "purpi_block"), new BlockItem(BlockClass.PURPI_BLOCK, new FabricItemSettings().group(OakOres.MAIN_GROUP)));
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "purpi_ore"), new BlockItem(BlockClass.PURPI_ORE, new FabricItemSettings().group(OakOres.MAIN_GROUP)));
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "lead_ore"), new BlockItem(BlockClass.LEAD_ORE, new FabricItemSettings().group(OakOres.MAIN_GROUP)));
-
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "deepslate_lead_ore"), new BlockItem(BlockClass.DEEPSLATE_LEAD_ORE, new FabricItemSettings().group(OakOres.MAIN_GROUP)));
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "lead_block"), new BlockItem(BlockClass.LEAD_BLOCK, new FabricItemSettings().group(OakOres.MAIN_GROUP)));
 
     }
 

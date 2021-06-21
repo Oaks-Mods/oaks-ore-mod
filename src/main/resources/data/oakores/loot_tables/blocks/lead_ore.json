@@ -9,7 +9,7 @@
           "children": [
             {
               "type": "minecraft:item",
-              "name": "oakores:purpi_ore",
+              "name": "oakores:lead_ore",
               "conditions": [
                 {
                   "condition": "minecraft:match_tool",
@@ -28,7 +28,7 @@
             },
             {
               "type": "minecraft:item",
-              "name": "oakores:purpi",
+              "name": "oakores:lead",
               "functions": [
                 {
                   "function": "minecraft:set_count",
