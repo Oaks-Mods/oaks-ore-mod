@@ -6,6 +6,7 @@ import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.oakbricks.oakores.OakOres;
+import org.oakbricks.oakores.registry.custom.LeadRockItem;
 
 import static org.oakbricks.oakores.OakOres.*;
 
@@ -14,7 +15,7 @@ public class ItemClass {
 
     public static final ArmorMaterial PURPI_ARMOR_MATERIAL = new ArmorClass();
     public static final Item PURPI = new Item(new FabricItemSettings().group(OakOres.OAKORES_ITEM_GROUP));
-    public static final Item LEAD_ROCK = new Item(new FabricItemSettings().group(OakOres.OAKORES_ITEM_GROUP));
+    public static final Item LEAD_ROCK = new LeadRockItem(new FabricItemSettings().group(OakOres.OAKORES_ITEM_GROUP));
     public static final Item PURPI_HELMET = new ArmorItem(PURPI_ARMOR_MATERIAL, EquipmentSlot.HEAD, new Item.Settings().group(OakOres.OAKORES_ITEM_GROUP));
     public static final Item PURPI_CHESTPLATE = new ArmorItem(PURPI_ARMOR_MATERIAL, EquipmentSlot.CHEST, new Item.Settings().group(OakOres.OAKORES_ITEM_GROUP));
     public static final Item PURPI_LEGGINGS = new ArmorItem(PURPI_ARMOR_MATERIAL, EquipmentSlot.LEGS, new Item.Settings().group(OakOres.OAKORES_ITEM_GROUP));
