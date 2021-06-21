@@ -4,7 +4,8 @@
   "package": "org.oakbricks.oakores.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
-    "ArmorItemMixin"
+    "ArmorItemMixin",
+    "PlayerEntityMixin"
   ],
   "client": [
   ],

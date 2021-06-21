@@ -12,6 +12,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import static java.lang.Thread.sleep;
+
 @Mixin(LivingEntity.class)
 public abstract class PlayerEntityMixin {
 
@@ -26,11 +28,16 @@ public abstract class PlayerEntityMixin {
     @Unique
     int timer;
 
-    @Inject(at = @At("HEAD"), method = "tick")
-    private void tick(CallbackInfo info) {
-        if (this.getMainHandStack().isOf(ItemClass.LEAD_ROCK) || getOffHandStack().isOf(ItemClass.LEAD_ROCK)) {
-
-        };
+    public int maxLeadTimeAllowed() {
+        return 400;
     }
 
+    @Inject(at = @At("HEAD"), method = "tick")
+    private void tick(CallbackInfo info) {
+        int i = this.maxLeadTimeAllowed();
+
+        if (this.getMainHandStack().isOf(ItemClass.LEAD_ROCK) || getOffHandStack().isOf(ItemClass.LEAD_ROCK) && this.timer++ >= i) {
+            System.out.println("HEY! THIS IS WORKING, IF ITS NOT DELAYED THEN DO SOMETHING!");
+        };
+    }
 }
