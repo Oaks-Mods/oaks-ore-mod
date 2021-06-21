@@ -5,6 +5,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
 import org.oakbricks.oakores.registry.ItemClass;
+import org.oakbricks.oakores.util.TickUtil;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -23,21 +24,15 @@ public abstract class PlayerEntityMixin {
     @Shadow
     public abstract ItemStack getOffHandStack();
 
+    public abstract int maxLeadTimeAllowed();
+
+    public int ticks;
     //MEGA BODGE (lazy fix to a very complicated issue that will break in the future!)
-
-    @Unique
-    int timer;
-
-    public int maxLeadTimeAllowed() {
-        return 400;
-    }
 
     @Inject(at = @At("HEAD"), method = "tick")
     private void tick(CallbackInfo info) {
-        int i = this.maxLeadTimeAllowed();
+        if (this.getMainHandStack().isOf(ItemClass.LEAD_ROCK) || getOffHandStack().isOf(ItemClass.LEAD_ROCK) && this.ticks == this.maxLeadTimeAllowed()) {
 
-        if (this.getMainHandStack().isOf(ItemClass.LEAD_ROCK) || getOffHandStack().isOf(ItemClass.LEAD_ROCK) && this.timer++ >= i) {
-            System.out.println("HEY! THIS IS WORKING, IF ITS NOT DELAYED THEN DO SOMETHING!");
         }
     }
 }
