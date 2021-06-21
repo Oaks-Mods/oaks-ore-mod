@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "oakores:deepslate_lead_ore"
+  },
+  "result": "oakores:lead_rock",
+  "experience": 9,
+  "cookingtime": 80
+}

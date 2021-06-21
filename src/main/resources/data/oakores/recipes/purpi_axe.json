@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "##",
+        "/#",
+        "/ "
+    ],
+    "key": {
+        "#": {
+            "item": "oakores:purpi"
+        },
+        "/": {
+            "item": "minecraft:stick"
+        }
+    },
+    "result": {
+        "item": "oakores:purpi_axe",
+        "count": 1
+    }
+}

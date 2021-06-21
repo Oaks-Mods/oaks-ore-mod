@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "oakores:lead_block"
+    }
+  ],
+  "result": {
+    "item": "oakores:lead_rock",
+    "count": 9
+  }
+}

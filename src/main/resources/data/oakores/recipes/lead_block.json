@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "!!!",
+    "!!!",
+    "!!!"
+  ],
+  "key": {
+    "!": {
+      "item": "oakores:lead_rock"
+    }
+  },
+  "result": {
+    "item": "oakores:lead_block",
+    "count": 1
+  }
+}

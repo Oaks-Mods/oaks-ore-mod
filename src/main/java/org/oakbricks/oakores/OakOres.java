@@ -46,25 +46,53 @@ public class OakOres implements ModInitializer {
 	public static final Logger LOGGER = LogManager.getLogger();
     public static final ModConfig CONFIG = AutoConfig.register(ModConfig.class, Toml4jConfigSerializer::new).getConfig();
 
-	public static final ItemGroup MAIN_GROUP = FabricItemGroupBuilder.create(
-			new Identifier(MOD_ID, "main"))
+	public static final ItemGroup OAKORES_ITEM_GROUP = FabricItemGroupBuilder.create(
+			new Identifier(MOD_ID, "items"))
 			.icon(() -> new ItemStack(BlockClass.PURPI_BLOCK))
 			.appendItems(stacks -> {
-				stacks.add(new ItemStack(BlockClass.PURPI_BLOCK));
-				stacks.add(new ItemStack(BlockClass.PURPI_ORE));
+				//items here
 				stacks.add(new ItemStack(ItemClass.PURPI));
 				stacks.add(new ItemStack(ItemClass.PURPI_BOOTS));
 				stacks.add(new ItemStack(ItemClass.PURPI_LEGGINGS));
 				stacks.add(new ItemStack(ItemClass.PURPI_CHESTPLATE));
 				stacks.add(new ItemStack(ItemClass.PURPI_HELMET));
+			})
+			.build();
+
+	public static final ItemGroup OAKORES_BLOCK_GROUP = FabricItemGroupBuilder.create(
+			new Identifier(MOD_ID, "blocks"))
+			.icon(() -> new ItemStack(BlockClass.PURPI_BLOCK))
+			.appendItems(stacks -> {
+				//blocks here
+				stacks.add(new ItemStack(BlockClass.LEAD_ORE));
+				stacks.add(new ItemStack(BlockClass.DEEPSLATE_LEAD_ORE));
+				stacks.add(new ItemStack(BlockClass.LEAD_BLOCK));
+				stacks.add(new ItemStack(BlockClass.PURPI_BLOCK));
+				stacks.add(new ItemStack(BlockClass.PURPI_ORE));
+			})
+			.build();
+
+	public static final ItemGroup OAKORES_TOOL_GROUP = FabricItemGroupBuilder.create(
+			new Identifier(MOD_ID, "tools"))
+			.icon(() -> new ItemStack(RegisterTools.PURPI_PICKAXE))
+			.appendItems(stacks -> {
+				//tools here
 				stacks.add(new ItemStack(RegisterTools.PURPI_AXE));
 				stacks.add(new ItemStack(RegisterTools.PURPI_PICKAXE));
 				stacks.add(new ItemStack(RegisterTools.PURPI_HOE));
 				stacks.add(new ItemStack(RegisterTools.PURPI_SWORD));
 				stacks.add(new ItemStack(RegisterTools.PURPI_SPADE));
-				stacks.add(new ItemStack(BlockClass.LEAD_ORE));
-				stacks.add(new ItemStack(BlockClass.DEEPSLATE_LEAD_ORE));
-				stacks.add(new ItemStack(BlockClass.LEAD_BLOCK));
+			})
+			.build();
+
+	public static final ItemGroup OAKORES_ARMOR_GROUP = FabricItemGroupBuilder.create(
+			new Identifier(MOD_ID, "armor"))
+			.icon(() -> new ItemStack(PURPI_HELMET))
+			.appendItems(stacks -> {
+				stacks.add(new ItemStack(ItemClass.PURPI_BOOTS));
+				stacks.add(new ItemStack(ItemClass.PURPI_LEGGINGS));
+				stacks.add(new ItemStack(ItemClass.PURPI_CHESTPLATE));
+				stacks.add(new ItemStack(ItemClass.PURPI_HELMET));
 			})
 			.build();
 

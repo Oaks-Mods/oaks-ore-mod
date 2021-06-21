@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "oakores:lead_ore"
+  },
+  "result": "oakores:lead_rock",
+  "experience": 3,
+  "cookingtime": 130
+}

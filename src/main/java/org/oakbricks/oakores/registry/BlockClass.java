@@ -32,11 +32,11 @@ public class BlockClass {
 
     public static final Block PURPI_ORE = new PurpiOre(FabricBlockSettings.of(Material.STONE, MapColor.STONE_GRAY).strength(3.5f, 10.25f).breakByTool(FabricToolTags.PICKAXES, 3).requiresTool().sounds(BlockSoundGroup.STONE));
 
-    public static final Block LEAD_ORE = new LeadOre(FabricBlockSettings.of(Material.STONE, MapColor.STONE_GRAY).strength(5.8f, 8.3f).breakByTool(FabricToolTags.PICKAXES, 3).requiresTool().sounds(BlockSoundGroup.STONE));
+    public static final Block LEAD_ORE = new LeadOre(FabricBlockSettings.of(Material.STONE, MapColor.STONE_GRAY).strength(4.2f, 8.3f).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().sounds(BlockSoundGroup.STONE));
 
-    public static final Block DEEPSLATE_LEAD_ORE = new LeadOre(FabricBlockSettings.of(Material.STONE, MapColor.DEEPSLATE_GRAY).strength(8.2f, 10.5f).requiresTool().sounds(BlockSoundGroup.DEEPSLATE));
+    public static final Block DEEPSLATE_LEAD_ORE = new LeadOre(FabricBlockSettings.of(Material.STONE, MapColor.DEEPSLATE_GRAY).strength(8.2f, 10.5f).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().sounds(BlockSoundGroup.DEEPSLATE));
 
-    public static final Block LEAD_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).breakByTool(FabricToolTags.PICKAXES).strength(8.5f, 17.5f).requiresTool().sounds(BlockSoundGroup.METAL));
+    public static final Block LEAD_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).breakByTool(FabricToolTags.PICKAXES).strength(8.5f, 17.5f).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().sounds(BlockSoundGroup.METAL));
 
     //public static final Block PURPI_ORE = new Block(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).strength(2.5f, 10.5f).requiresTool().sounds(BlockSoundGroup.STONE));
 
