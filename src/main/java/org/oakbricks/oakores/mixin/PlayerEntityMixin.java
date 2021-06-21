@@ -1,9 +1,21 @@
 package org.oakbricks.oakores.mixin;
 
 // this was and is very painful to code for
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.PlayerManager;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.world.Difficulty;
+import net.minecraft.world.GameMode;
+import net.minecraft.world.GameRules;
+import net.minecraft.world.World;
 import org.oakbricks.oakores.registry.ItemClass;
 import org.oakbricks.oakores.util.TickUtil;
 import org.spongepowered.asm.mixin.Mixin;
@@ -27,11 +39,24 @@ public abstract class PlayerEntityMixin {
     public abstract int maxLeadTimeAllowed();
 
     public int ticks;
-    //MEGA BODGE (lazy fix to a very complicated issue that will break in the future!)
+    //cursed code!
+
+    public void leadPoisonCounterIncrement() {
+        this.ticks++;
+    }
 
     @Inject(at = @At("HEAD"), method = "tick")
-    private void tick(CallbackInfo info) {
-        if (this.getMainHandStack().isOf(ItemClass.LEAD_ROCK) || getOffHandStack().isOf(ItemClass.LEAD_ROCK) && this.ticks == this.maxLeadTimeAllowed()) {
+    public void leadOnTick(CallbackInfo info, World world, Entity entity) {
+
+        if (this.getMainHandStack().isOf(ItemClass.LEAD_ROCK) || getOffHandStack().isOf(ItemClass.LEAD_ROCK) && this.ticks == this.maxLeadTimeAllowed() && world.getDifficulty() != Difficulty.PEACEFUL) {
+
+
+            if (this.ticks > this.maxLeadTimeAllowed()) {
+                LivingEntity livingEntity = (LivingEntity)entity;
+                if (entity instanceof LivingEntity) {
+                    livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 50));
+                }
+            }
 
         }
     }
