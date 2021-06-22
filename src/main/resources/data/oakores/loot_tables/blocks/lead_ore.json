@@ -28,7 +28,7 @@
             },
             {
               "type": "minecraft:item",
-              "name": "oakores:lead",
+              "name": "oakores:lead_rock",
               "functions": [
                 {
                   "function": "minecraft:set_count",
