@@ -48,9 +48,10 @@ public class OakOres implements ModInitializer {
 
 	public static final ItemGroup OAKORES_ITEM_GROUP = FabricItemGroupBuilder.create(
 			new Identifier(MOD_ID, "items"))
-			.icon(() -> new ItemStack(BlockClass.PURPI_BLOCK))
+			.icon(() -> new ItemStack(ItemClass.PURPI))
 			.appendItems(stacks -> {
 				//items here
+				stacks.add(new ItemStack(LEAD_ROCK));
 				stacks.add(new ItemStack(ItemClass.PURPI));
 				stacks.add(new ItemStack(ItemClass.PURPI_BOOTS));
 				stacks.add(new ItemStack(ItemClass.PURPI_LEGGINGS));
@@ -162,7 +163,7 @@ public class OakOres implements ModInitializer {
 			CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
 				dispatcher.register(literal("oakores_dont_use_yet_config").executes(ctx -> {
 					if (!dedicated) {
-						ctx.getSource().sendFeedback(new LiteralText("Please enable Exirimental"), false);
+						ctx.getSource().sendFeedback(new LiteralText("Please enable Exirimental Features in config"), false);
 					}
 					return 1;
 				}));
