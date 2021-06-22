@@ -22,7 +22,9 @@ public abstract class PlayerEntityMixin implements EntityAccessor {
 
     @Shadow public abstract boolean addStatusEffect(StatusEffectInstance effect);
 
-    public abstract int maxLeadTimeAllowed();
+    public int maxLeadTimeAllowed() {
+        return 400;
+    }
 
     public int ticks;
     //cursed code!
@@ -34,6 +36,7 @@ public abstract class PlayerEntityMixin implements EntityAccessor {
     @Inject(at = @At("HEAD"), method = "tick")
     public void leadOnTick(CallbackInfo ci) {
 
+        //Allows the timer to work
         leadPoisonCounterIncrement();
 
         if (this.getMainHandStack().isOf(ItemClass.LEAD_ROCK) || this.getOffHandStack().isOf(ItemClass.LEAD_ROCK) && this.ticks == this.maxLeadTimeAllowed() && this.getWorld().getDifficulty() != Difficulty.PEACEFUL) {
