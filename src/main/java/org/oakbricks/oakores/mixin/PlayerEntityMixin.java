@@ -46,24 +46,18 @@ public abstract class PlayerEntityMixin implements EntityAccessor {
         if (this.getMainHandStack().isOf(ItemClass.LEAD_ROCK) || this.getOffHandStack().isOf(ItemClass.LEAD_ROCK) && this.ticks == this.maxLeadTimeAllowed() && this.getWorld().getDifficulty() != Difficulty.PEACEFUL) {
             if (this.ticks > this.maxLeadTimeAllowed()) {
                 Thread thread = new Thread(() -> {
-                    try {
-                        Thread.sleep(3000); // one second
+                    try { /* This delays it by seven seconds ( i might change it in a later release */
+                        Thread.sleep(7000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    this.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 400, 3));
-                    this.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 400, 2));
-                    this.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 250, 1));
-                    this.addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 250, 2));
-                    this.addStatusEffect(new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 300, 1));
+                    this.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 30, 3));
+                    this.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 30, 2));
+                    this.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 30, 1));
+                    this.addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 30, 2));
+                    this.addStatusEffect(new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 30, 1));
                 });
                 thread.start();
-
-//                this.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 400, 3));
-//                this.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 400, 2));
-//                this.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 250, 1));
-//                this.addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 250, 2));
-//                this.addStatusEffect(new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 300, 1));
             }
         }
     }
