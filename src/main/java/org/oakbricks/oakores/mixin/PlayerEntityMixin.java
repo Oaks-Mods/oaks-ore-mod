@@ -28,17 +28,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import static java.lang.Thread.sleep;
 
 @Mixin(LivingEntity.class)
-public abstract class PlayerEntityMixin {
+public abstract class PlayerEntityMixin implements EntityAccessor {
+    @Shadow public abstract ItemStack getMainHandStack();
 
-    @Shadow
-    public abstract ItemStack getMainHandStack();
+    @Shadow public abstract ItemStack getOffHandStack();
 
-    @Shadow
-    public abstract ItemStack getOffHandStack();
-
-    public Entity entity;
-
-    public World world;
+    @Shadow public abstract boolean addStatusEffect(StatusEffectInstance effect);
 
     public abstract int maxLeadTimeAllowed();
 
@@ -51,17 +46,10 @@ public abstract class PlayerEntityMixin {
 
     @Inject(at = @At("HEAD"), method = "tick")
     public void leadOnTick(CallbackInfo ci) {
-
-        if (this.getMainHandStack().isOf(ItemClass.LEAD_ROCK) || getOffHandStack().isOf(ItemClass.LEAD_ROCK) && this.ticks == this.maxLeadTimeAllowed() && world.getDifficulty() != Difficulty.PEACEFUL) {
-
-
+        if (this.getMainHandStack().isOf(ItemClass.LEAD_ROCK) || this.getOffHandStack().isOf(ItemClass.LEAD_ROCK) && this.ticks == this.maxLeadTimeAllowed() && this.getWorld().getDifficulty() != Difficulty.PEACEFUL) {
             if (this.ticks > this.maxLeadTimeAllowed()) {
-                LivingEntity livingEntity = (LivingEntity)entity;
-                if (entity instanceof LivingEntity) {
-                    livingEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 50));
-                }
+                this.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 50));
             }
-
         }
     }
 }
