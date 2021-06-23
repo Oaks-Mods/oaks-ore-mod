@@ -1,16 +1,16 @@
 package org.oakbricks.oakores;
 
 import me.shedaniel.autoconfig.AutoConfig;
-import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
-import net.minecraft.item.Item;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.structure.rule.BlockMatchRuleTest;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
@@ -110,12 +110,18 @@ public class OakOres implements ModInitializer {
 			.spreadHorizontally()
 			.repeat(Integer.parseInt("25")); //TODO: Make this configurable
 
+	private static ConfiguredFeature<?, ?> LEAD_DEEPSLATE_ORE_OVERWORLD = Feature.ORE
+			.configure(new OreFeatureConfig(
+					new BlockMatchRuleTest(Blocks.DEEPSLATE), // base block is endstone in the end biomes
+					BlockClass.DEEPSLATE_LEAD_ORE.getDefaultState(),
+					9))
+			.decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.fixed(Integer.parseInt("0")), YOffset.fixed(Integer.parseInt("48")))))
+			.spreadHorizontally()
+			.repeat(10));
+
 
 	@Override
 	public void onInitialize() {
-		// This code runs as soon as Minecraft is in a mod-load-ready state.
-		// However, some things (like resources) may still be uninitialized.
-		// Proceed with mild caution.
 
 		if (CONFIG.enableDebugFeatures) {
 			CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
@@ -179,12 +185,17 @@ public class OakOres implements ModInitializer {
 		Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, leadOreOverworld.getValue(), LEAD_ORE_OVERWORLD);
 		BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, leadOreOverworld);
 
+		RegistryKey<ConfiguredFeature<?, ?>> oreDeepslateLeadOverWorld = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY,
+				new Identifier(MOD_ID, "lead_ore_deepslate_overworld"));
+		Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, oreDeepslateLeadOverWorld.getValue(), LEAD_DEEPSLATE_ORE_OVERWORLD);
+		BiomeModifications.addFeature(BiomeSelectors.foundInTheEnd(), GenerationStep.Feature.UNDERGROUND_ORES, oreDeepslateLeadOverWorld);
+
         //FOR CONTRIBUTORS: please make at least 90% of modified classes/voids with names that are easy to understand!
 		registerItems();
 		registerBlocks();
 		registerBlockItems();
 		registerArmorItems();
         registerTools();
-		System.out.println(new TranslatableText("oakbricks.oakores.console.init"));
+        LOGGER.info("OakOres - Refabricated has Initialized");
 	};
 }

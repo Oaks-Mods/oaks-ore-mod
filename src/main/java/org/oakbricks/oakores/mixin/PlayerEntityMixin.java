@@ -2,14 +2,13 @@ package org.oakbricks.oakores.mixin;
 
 // this was and is very painful to code for
 
-import net.minecraft.entity.DamageUtil;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.world.Difficulty;
+import org.oakbricks.oakores.registry.BlockClass;
 import org.oakbricks.oakores.registry.ItemClass;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -43,7 +42,7 @@ public abstract class PlayerEntityMixin implements EntityAccessor {
         //Allows the timer to work
         leadPoisonCounterIncrement();
 
-        if (this.getMainHandStack().isOf(ItemClass.LEAD_ROCK) || this.getOffHandStack().isOf(ItemClass.LEAD_ROCK) && this.ticks == this.maxLeadTimeAllowed() && this.getWorld().getDifficulty() != Difficulty.PEACEFUL) {
+        if (this.getMainHandStack().isOf(ItemClass.LEAD_ROCK) || this.getOffHandStack().isOf(ItemClass.LEAD_ROCK) || this.getMainHandStack().isOf(Item.fromBlock(BlockClass.LEAD_BLOCK)) || this.getOffHandStack().isOf(Item.fromBlock(BlockClass.LEAD_BLOCK)) && this.ticks == this.maxLeadTimeAllowed() && this.getWorld().getDifficulty() != Difficulty.PEACEFUL) {
             if (this.ticks > this.maxLeadTimeAllowed()) {
                 Thread thread = new Thread(() -> {
                     try { /* This delays it by seven seconds ( i might change it in a later release */
@@ -51,11 +50,12 @@ public abstract class PlayerEntityMixin implements EntityAccessor {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    this.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 30, 3));
-                    this.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 30, 2));
-                    this.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 30, 1));
-                    this.addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 30, 2));
-                    this.addStatusEffect(new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 30, 1));
+                    this.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 70, 3));
+                    this.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 70, 2));
+                    this.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 70, 1));
+                    this.addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 70, 2));
+                    this.addStatusEffect(new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 70, 1));
+                    this.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 70, 1));
                 });
                 thread.start();
             }
