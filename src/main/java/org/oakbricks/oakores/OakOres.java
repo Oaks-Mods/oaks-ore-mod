@@ -120,6 +120,7 @@ public class OakOres implements ModInitializer {
 			.repeat(10));
 
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public void onInitialize() {
 
@@ -137,7 +138,7 @@ public class OakOres implements ModInitializer {
 					return 1;
 				}));
 			});
-		};
+		}
 
 		if (CONFIG.enableDebugFeatures) {
 			CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
@@ -197,5 +198,5 @@ public class OakOres implements ModInitializer {
 		registerArmorItems();
         registerTools();
         LOGGER.info("OakOres - Refabricated has Initialized");
-	};
+	}
 }

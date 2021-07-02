@@ -16,6 +16,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+
+@SuppressWarnings("deprecation")
 @Mixin(LivingEntity.class)
 public abstract class PlayerEntityMixin implements EntityAccessor {
 
@@ -27,6 +29,10 @@ public abstract class PlayerEntityMixin implements EntityAccessor {
 
     public int maxLeadTimeAllowed() {
         return 400;
+    }
+
+    public int maxLeadBlockTimeAllowed() {
+        return 300;
     }
 
     public int ticks;
@@ -56,6 +62,25 @@ public abstract class PlayerEntityMixin implements EntityAccessor {
                     this.addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 70, 2));
                     this.addStatusEffect(new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 70, 1));
                     this.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 70, 1));
+                });
+                thread.start();
+            }
+        }
+        //lead block
+        if (this.getMainHandStack().isOf(Item.fromBlock(BlockClass.LEAD_BLOCK)) || this.getOffHandStack().isOf(Item.fromBlock(BlockClass.LEAD_BLOCK)) && this.ticks == this.maxLeadTimeAllowed() && this.getWorld().getDifficulty() != Difficulty.PEACEFUL) {
+            if (this.ticks > this.maxLeadBlockTimeAllowed()) {
+                Thread thread = new Thread(() -> {
+                    try { /* This delays it by seven seconds ( i might change it in a later release */
+                        Thread.sleep(3000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    this.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 70, 4));
+                    this.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 70, 3));
+                    this.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 70, 2));
+                    this.addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 70, 3));
+                    this.addStatusEffect(new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 70, 2));
+                    this.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 70, 2));
                 });
                 thread.start();
             }
