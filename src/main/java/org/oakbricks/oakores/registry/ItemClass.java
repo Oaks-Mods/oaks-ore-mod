@@ -39,7 +39,7 @@ public class ItemClass {
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "deepslate_lead_ore"), new BlockItem(BlockClass.DEEPSLATE_LEAD_ORE, new FabricItemSettings().group(OakOres.OAKORES_ITEM_GROUP)));
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "lead_block"), new BlockItem(BlockClass.LEAD_BLOCK, new FabricItemSettings().group(OakOres.OAKORES_ITEM_GROUP)));
 
-        BlockDevAids.oakOresRegisterBlockitemSimple(MOD_ID, "test_block", BlockClass.TEST_BLOCK);
+        //BlockDevAids.oakOresRegisterBlockitemSimple(MOD_ID, "test_block", BlockClass.TEST_BLOCK);
 
     }
 
