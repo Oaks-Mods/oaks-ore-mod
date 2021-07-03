@@ -20,6 +20,8 @@ public class LeadOre extends Block{
     protected int getExperienceWhenMined(Random random){
         return MathHelper.nextInt(random, 4, 6);
     }
+
+    @Override
     public void onStacksDropped(BlockState state, ServerWorld world,BlockPos pos, ItemStack stack){
         super.onStacksDropped(state, world, pos, stack);
         if (EnchantmentHelper.getLevel(Enchantments.SILK_TOUCH, stack) == 0){
