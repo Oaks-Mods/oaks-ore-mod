@@ -41,6 +41,8 @@ public class BlockClass {
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "deepslate_lead_ore"), DEEPSLATE_LEAD_ORE);
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "lead_block"), LEAD_BLOCK);
 
+        //BlockDevAids.oakOresRegisterBlockitemSimple(MOD_ID, "lead_block", LEAD_BLOCK);
+
         //BlockDevAids.oakOresRegisterBlock(MOD_ID, "purpi_block", TEST_BLOCK);
     }
 
