@@ -23,7 +23,8 @@ repositories {
         url "https://maven.shedaniel.me/"
     }
     maven {
-        url "https://maven.terraformersmc.com/"
+        //url "https://maven.terraformersmc.com/"
+		url "https://raw.githubusercontent.com/TerraformersMC/Archive/main/releases/"
     }
 }
 
