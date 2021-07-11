@@ -10,14 +10,12 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.oakbricks.oakores.blocks.LeadOre;
 import org.oakbricks.oakores.blocks.PurpiOre;
-import org.oakbricks.oakores.util.BlockDevAids;
 
-//import static org.oakbricks.oakores.OakOres.CONFIG;
 import static org.oakbricks.oakores.OakOres.MOD_ID;
 
 public class BlockClass {
 
-    public static final Block PURPI_BLOCK = new Block(FabricBlockSettings.of(Material.METAL, MapColor.PURPLE).breakByTool(FabricToolTags.PICKAXES).strength(6.5f, 20.5f).breakByTool(FabricToolTags.PICKAXES, 3).requiresTool().sounds(BlockSoundGroup.METAL));
+    public static final Block PURPI_BLOCK = new Block(FabricBlockSettings.of(Material.METAL, MapColor.PURPLE).breakByTool(FabricToolTags.PICKAXES).strength(6.5f, 10.5f).breakByTool(FabricToolTags.PICKAXES, 3).requiresTool().sounds(BlockSoundGroup.METAL));
 
     public static final Block PURPI_ORE = new PurpiOre(FabricBlockSettings.of(Material.STONE, MapColor.STONE_GRAY).strength(3.5f, 10.25f).breakByTool(FabricToolTags.PICKAXES, 3).requiresTool().sounds(BlockSoundGroup.STONE));
 
@@ -27,12 +25,6 @@ public class BlockClass {
 
     public static final Block LEAD_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).breakByTool(FabricToolTags.PICKAXES).strength(8.5f, 17.5f).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().sounds(BlockSoundGroup.METAL));
 
-    public static final Block TEST_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).breakByTool(FabricToolTags.PICKAXES).strength(8.5f, 17.5f).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().sounds(BlockSoundGroup.METAL));
-
-    //public static final Block PURPI_ORE = new Block(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES).strength(2.5f, 10.5f).requiresTool().sounds(BlockSoundGroup.STONE));
-
-    //public static final Block PURPI_ORE = PurpiOre(FabricBlockSettings.copyOf(Blocks.DIAMOND_ORE).requiresTool().breakByTool(FabricToolTags.PICKAXES).sounds(BlockSoundGroup.STONE).strength(3.0f, 3.0f));
-
     public static void registerBlocks() {
 
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "purpi_block"), PURPI_BLOCK);
@@ -41,9 +33,6 @@ public class BlockClass {
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "deepslate_lead_ore"), DEEPSLATE_LEAD_ORE);
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "lead_block"), LEAD_BLOCK);
 
-        //BlockDevAids.oakOresRegisterBlockitemSimple(MOD_ID, "lead_block", LEAD_BLOCK);
-
-        //BlockDevAids.oakOresRegisterBlock(MOD_ID, "purpi_block", TEST_BLOCK);
     }
 
 
