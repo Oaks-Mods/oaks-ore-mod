@@ -65,6 +65,8 @@ public abstract class PlayerEntityMixin implements EntityAccessor {
                 });
                 thread.start();
             }
+        } else {
+
         }
         //lead block
         if (this.getMainHandStack().isOf(Item.fromBlock(BlockClass.LEAD_BLOCK)) || this.getOffHandStack().isOf(Item.fromBlock(BlockClass.LEAD_BLOCK)) && this.ticks == this.maxLeadTimeAllowed() && this.getWorld().getDifficulty() != Difficulty.PEACEFUL) {
@@ -84,6 +86,8 @@ public abstract class PlayerEntityMixin implements EntityAccessor {
                 });
                 thread.start();
             }
+        } else {
+
         }
     }
 }
