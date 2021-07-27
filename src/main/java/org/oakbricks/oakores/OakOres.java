@@ -105,8 +105,8 @@ public class OakOres implements ModInitializer {
 
 	//LEAD ORE WORLD GEN
 	private static ConfiguredFeature<?, ?> LEAD_ORE_OVERWORLD = Feature.ORE
-			.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, BlockClass.LEAD_ORE.getDefaultState(), 6)) /* TODO: Make this configurable */
-			.decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.fixed(Integer.parseInt("0")), YOffset.fixed(Integer.parseInt("48")))))) /* TODO: Make this configurable */
+			.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, BlockClass.LEAD_ORE.getDefaultState(), 16)) /* TODO: Make this configurable */
+			.decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.fixed(Integer.parseInt("0")), YOffset.fixed(Integer.parseInt("256")))))) /* TODO: Make this configurable */
 			.spreadHorizontally()
 			.repeat(Integer.parseInt("25")); //TODO: Make this configurable
 
@@ -117,7 +117,8 @@ public class OakOres implements ModInitializer {
 					9))
 			.decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.fixed(Integer.parseInt("0")), YOffset.fixed(Integer.parseInt("48")))))
 			.spreadHorizontally()
-			.repeat(10));
+			.repeat(4));
+	
 
 
 	@SuppressWarnings("deprecation")
