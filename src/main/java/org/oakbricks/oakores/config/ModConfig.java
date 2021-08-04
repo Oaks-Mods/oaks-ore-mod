@@ -10,26 +10,29 @@ import org.oakbricks.oakores.OakOres;
 public class ModConfig implements ConfigData {
 
     @ConfigEntry.Gui.RequiresRestart
+    public boolean enableEnderite = true;
+
+    @ConfigEntry.Gui.RequiresRestart
+    public boolean enableNetherOres = true;
+
+    @ConfigEntry.Gui.RequiresRestart
     public int purpiOreGenRetries = 10;
 
-    //@ConfigEntry.Gui.Excluded
     @ConfigEntry.Gui.RequiresRestart
-    public int maxPurpiGenHeight = (int) 28;
+    public int maxPurpiGenHeight = 28;
 
-    //@ConfigEntry.Gui.Excluded
     @ConfigEntry.Gui.RequiresRestart
-    public int minPurpiGenHeight = (int) 5;
+    public int purpiMinHeight = 5;
 
     @ConfigEntry.Gui.RequiresRestart
     public int leadOreGenRetries = 25;
 
-    //@ConfigEntry.Gui.Excluded
     @ConfigEntry.Gui.RequiresRestart
-    public int maxLeadGenHeight = (int) 32;
+    public int maxLeadGenHeight = 256;
 
     //@ConfigEntry.Gui.Excluded
     @ConfigEntry.Gui.RequiresRestart
-    public int minLeadGenHeight = (int) 0;
+    public int minLeadGenHeight = 0;
 
     @ConfigEntry.Gui.Excluded
     @ConfigEntry.Gui.RequiresRestart

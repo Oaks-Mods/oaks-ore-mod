@@ -12,7 +12,6 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.structure.rule.BlockMatchRuleTest;
 import net.minecraft.text.LiteralText;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
@@ -35,6 +34,7 @@ import org.oakbricks.oakores.tools.RegisterTools;
 import static net.minecraft.server.command.CommandManager.literal;
 import static org.oakbricks.oakores.registry.BlockClass.registerBlocks;
 import static org.oakbricks.oakores.registry.ItemClass.*;
+import static org.oakbricks.oakores.registry.ModWorldGen.registerWorldGenFeatures;
 import static org.oakbricks.oakores.tools.RegisterTools.registerTools;
 //import static org.oakbricks.oakores.util.OreClass.*;
 
@@ -97,28 +97,6 @@ public class OakOres implements ModInitializer {
 			})
 			.build();
 
-	private static ConfiguredFeature<?, ?> PURPI_ORE_OVERWORLD = Feature.ORE
-			.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, BlockClass.PURPI_ORE.getDefaultState(), 6)) /* TODO: Make this configurable */
-			.decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.fixed(Integer.parseInt("5")), YOffset.fixed(Integer.parseInt("28")))))) /* TODO: Make this configurable */
-			.spreadHorizontally()
-			.repeat(Integer.parseInt("10")); //TODO: Make this configurable
-
-	//LEAD ORE WORLD GEN
-	private static ConfiguredFeature<?, ?> LEAD_ORE_OVERWORLD = Feature.ORE
-			.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, BlockClass.LEAD_ORE.getDefaultState(), 6)) /* TODO: Make this configurable */
-			.decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.fixed(Integer.parseInt("0")), YOffset.fixed(Integer.parseInt("48")))))) /* TODO: Make this configurable */
-			.spreadHorizontally()
-			.repeat(Integer.parseInt("25")); //TODO: Make this configurable
-
-	private static ConfiguredFeature<?, ?> LEAD_DEEPSLATE_ORE_OVERWORLD = Feature.ORE
-			.configure(new OreFeatureConfig(
-					new BlockMatchRuleTest(Blocks.DEEPSLATE), // base block is endstone in the end biomes
-					BlockClass.DEEPSLATE_LEAD_ORE.getDefaultState(),
-					9))
-			.decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.fixed(Integer.parseInt("0")), YOffset.fixed(Integer.parseInt("48")))))
-			.spreadHorizontally()
-			.repeat(10));
-
 
 	@SuppressWarnings("deprecation")
 	@Override
@@ -127,7 +105,7 @@ public class OakOres implements ModInitializer {
 		if (CONFIG.enableDebugFeatures) {
 			CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
 				dispatcher.register(literal("oakores_info_purpi_configs").executes(ctx -> {
-                    ctx.getSource().sendFeedback(new LiteralText(CONFIG.maxPurpiGenHeight + "," + CONFIG.minPurpiGenHeight + "," + CONFIG.purpiOreGenRetries), false);
+                    ctx.getSource().sendFeedback(new LiteralText(CONFIG.maxPurpiGenHeight + "," + CONFIG.purpiMinHeight + "," + CONFIG.purpiOreGenRetries), false);
 					return 1;
 				}));
 			});
@@ -177,21 +155,10 @@ public class OakOres implements ModInitializer {
 			});
 		}
 
-		//Registers Purpi Ore world gen
-		RegistryKey<ConfiguredFeature<?, ?>> purpiOreOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY, new Identifier(MOD_ID, "purpi_ore_overworld"));
-		Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, purpiOreOverworld.getValue(), PURPI_ORE_OVERWORLD);
-		BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, purpiOreOverworld);
 
-		RegistryKey<ConfiguredFeature<?, ?>> leadOreOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY, new Identifier(MOD_ID, "lead_ore_overworld"));
-		Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, leadOreOverworld.getValue(), LEAD_ORE_OVERWORLD);
-		BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, leadOreOverworld);
-
-		RegistryKey<ConfiguredFeature<?, ?>> oreDeepslateLeadOverWorld = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY,
-				new Identifier(MOD_ID, "lead_ore_deepslate_overworld"));
-		Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, oreDeepslateLeadOverWorld.getValue(), LEAD_DEEPSLATE_ORE_OVERWORLD);
-		BiomeModifications.addFeature(BiomeSelectors.foundInTheEnd(), GenerationStep.Feature.UNDERGROUND_ORES, oreDeepslateLeadOverWorld);
 
         //FOR CONTRIBUTORS: please make at least 90% of modified classes/voids with names that are easy to understand!
+		registerWorldGenFeatures();
 		registerItems();
 		registerBlocks();
 		registerBlockItems();
