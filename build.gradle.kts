@@ -1,15 +1,15 @@
 plugins {
     id("fabric-loom")
 }
-base {
-    val archivesBaseName: String by project
-    archivesName.set(archivesBaseName)
-}
+//base {
+//    val archivesBaseName: String by project
+//    archivesName.set(archivesBaseName)
+//}
 val modVersion: String by project
 version = modVersion
 val mavenGroup: String by project
 group = mavenGroup
-loom {}
+minecraft {}
 repositories {
     maven ("https://maven.shedaniel.me/")
     maven ("https://maven.terraformersmc.com/")
@@ -38,7 +38,8 @@ tasks {
         targetCompatibility = javaVersion.toString()
         options.release.set(javaVersion.toString().toInt())
     }
-    jar { from("LICENSE") { rename { "${it}_${base.archivesName}" } } }
+    val archivesBaseName: String by project
+    jar { from("LICENSE") { rename { "${it}_$archivesBaseName" } } }
     processResources {
         inputs.property("version", project.version)
         filesMatching("fabric.mod.json") { expand(mutableMapOf("version" to project.version)) }
