@@ -83,62 +83,6 @@ public class OakOres implements ModInitializer {
 	@SuppressWarnings("deprecation")
 	@Override
 	public void onInitialize() {
-
-		if (CONFIG.enableDebugFeatures) {
-			CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
-				dispatcher.register(literal("oakores_info_purpi_configs").executes(ctx -> {
-                    ctx.getSource().sendFeedback(new LiteralText(CONFIG.maxPurpiGenHeight + "," + CONFIG.purpiMinHeight + "," + CONFIG.purpiOreGenRetries), false);
-					return 1;
-				}));
-			});
-		} else {
-			CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
-				dispatcher.register(literal("oakores_info_purpi_configs").executes(ctx -> {
-                    ctx.getSource().sendFeedback(new LiteralText("For Debug Commands Please Enable 'enableDebugFeatures' in the OakOres config"), false);
-					return 1;
-				}));
-			});
-		}
-
-		if (CONFIG.enableDebugFeatures) {
-			CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
-				dispatcher.register(literal("oakores_debug_info_lead_configs").executes(ctx -> {
-					//System.out.println(CONFIG.maxLeadGenHeight + "," + CONFIG.minLeadGenHeight + "," + CONFIG.leadOreGenRetries);
-					ctx.getSource().sendFeedback(new LiteralText(CONFIG.maxLeadGenHeight + "," + CONFIG.minLeadGenHeight + "," + CONFIG.leadOreGenRetries), false);
-					return 1;
-				}));
-			});
-		} else {
-			CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
-				dispatcher.register(literal("oakores_debug_info_lead_configs").executes(ctx -> {
-                    ctx.getSource().sendFeedback(new LiteralText("For Debug Commands Please Enable 'enableDebugFeatures' in the OakOres config"), false);
-					return 1;
-				}));
-			});
-		}
-
-		if (CONFIG.enableUnsupportedFeatures) {
-			CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
-				dispatcher.register(literal("oakores_dont_use_yet_config").executes(context -> {
-					if (!dedicated) {
-						AutoConfig.getGuiRegistry(ModConfig.class);
-					}
-					return 1;
-				}));
-			});
-		} else {
-			CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
-				dispatcher.register(literal("oakores_dont_use_yet_config").executes(ctx -> {
-					if (!dedicated) {
-						ctx.getSource().sendFeedback(new LiteralText("Please enable Exirimental Features in config"), false);
-					}
-					return 1;
-				}));
-			});
-		}
-
-
-
         //FOR CONTRIBUTORS: please make at least 90% of modified classes/voids with names that are easy to understand!
 		registerWorldGenFeatures();
 		registerItems();

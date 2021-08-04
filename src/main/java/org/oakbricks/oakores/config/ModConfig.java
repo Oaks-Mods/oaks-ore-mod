@@ -30,18 +30,7 @@ public class ModConfig implements ConfigData {
     @ConfigEntry.Gui.RequiresRestart
     public int maxLeadGenHeight = 256;
 
-    //@ConfigEntry.Gui.Excluded
     @ConfigEntry.Gui.RequiresRestart
     public int minLeadGenHeight = 0;
-
-    @ConfigEntry.Gui.Excluded
-    @ConfigEntry.Gui.RequiresRestart
-    public boolean enableDebugFeatures = false;
-
-
-
-    @ConfigEntry.Gui.Excluded
-    @ConfigEntry.Gui.RequiresRestart
-    public boolean enableUnsupportedFeatures = false;
 
 }
