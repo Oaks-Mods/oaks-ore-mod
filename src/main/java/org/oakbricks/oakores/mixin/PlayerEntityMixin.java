@@ -8,8 +8,8 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.Difficulty;
-import org.oakbricks.oakores.registry.BlockClass;
-import org.oakbricks.oakores.registry.ItemClass;
+import org.oakbricks.oakores.registry.ModBlocks;
+import org.oakbricks.oakores.registry.ModItems;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -48,7 +48,7 @@ public abstract class PlayerEntityMixin implements EntityAccessor {
         //Allows the timer to work
         leadPoisonCounterIncrement();
 
-        if (this.getMainHandStack().isOf(ItemClass.LEAD_ROCK) || this.getOffHandStack().isOf(ItemClass.LEAD_ROCK) || this.getMainHandStack().isOf(Item.fromBlock(BlockClass.LEAD_BLOCK)) || this.getOffHandStack().isOf(Item.fromBlock(BlockClass.LEAD_BLOCK)) && this.ticks == this.maxLeadTimeAllowed() && this.getWorld().getDifficulty() != Difficulty.PEACEFUL) {
+        if (this.getMainHandStack().isOf(ModItems.LEAD_ROCK) || this.getOffHandStack().isOf(ModItems.LEAD_ROCK) || this.getMainHandStack().isOf(Item.fromBlock(ModBlocks.LEAD_BLOCK)) || this.getOffHandStack().isOf(Item.fromBlock(ModBlocks.LEAD_BLOCK)) && this.ticks == this.maxLeadTimeAllowed() && this.getWorld().getDifficulty() != Difficulty.PEACEFUL) {
             if (this.ticks > this.maxLeadTimeAllowed()) {
                 Thread thread = new Thread(() -> {
                     try { /* This delays it by seven seconds ( i might change it in a later release */
@@ -69,7 +69,7 @@ public abstract class PlayerEntityMixin implements EntityAccessor {
 
         }
         //lead block
-        if (this.getMainHandStack().isOf(Item.fromBlock(BlockClass.LEAD_BLOCK)) || this.getOffHandStack().isOf(Item.fromBlock(BlockClass.LEAD_BLOCK)) && this.ticks == this.maxLeadTimeAllowed() && this.getWorld().getDifficulty() != Difficulty.PEACEFUL) {
+        if (this.getMainHandStack().isOf(Item.fromBlock(ModBlocks.LEAD_BLOCK)) || this.getOffHandStack().isOf(Item.fromBlock(ModBlocks.LEAD_BLOCK)) && this.ticks == this.maxLeadTimeAllowed() && this.getWorld().getDifficulty() != Difficulty.PEACEFUL) {
             if (this.ticks > this.maxLeadBlockTimeAllowed()) {
                 Thread thread = new Thread(() -> {
                     try { /* This delays it by seven seconds ( i might change it in a later release */

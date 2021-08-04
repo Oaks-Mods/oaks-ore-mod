@@ -21,14 +21,14 @@ import static org.oakbricks.oakores.OakOres.MOD_ID;
 
 public class ModWorldGen {
     public static ConfiguredFeature<?, ?> PURPI_ORE_OVERWORLD = Feature.ORE
-            .configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, BlockClass.PURPI_ORE.getDefaultState(), 6)) /* TODO: Make this configurable */
+            .configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, ModBlocks.PURPI_ORE.getDefaultState(), 6)) /* TODO: Make this configurable */
             .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.fixed(Integer.parseInt("5")), YOffset.fixed(Integer.parseInt("28")))))) /* TODO: Make this configurable */
             .spreadHorizontally()
             .repeat(Integer.parseInt("10")); //TODO: Make this configurable
 
     //LEAD ORE WORLD GEN
     public static ConfiguredFeature<?, ?> LEAD_ORE_OVERWORLD = Feature.ORE
-            .configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, BlockClass.LEAD_ORE.getDefaultState(), 6)) /* TODO: Make this configurable */
+            .configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, ModBlocks.LEAD_ORE.getDefaultState(), 6)) /* TODO: Make this configurable */
             .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.fixed(Integer.parseInt("0")), YOffset.fixed(Integer.parseInt("48")))))) /* TODO: Make this configurable */
             .spreadHorizontally()
             .repeat(Integer.parseInt("25")); //TODO: Make this configurable
@@ -37,7 +37,7 @@ public class ModWorldGen {
     public static ConfiguredFeature<?, ?> LEAD_DEEPSLATE_ORE_OVERWORLD = Feature.ORE
             .configure(new OreFeatureConfig(
                     new BlockMatchRuleTest(Blocks.DEEPSLATE), // base block is endstone in the end biomes
-                    BlockClass.DEEPSLATE_LEAD_ORE.getDefaultState(),
+                    ModBlocks.DEEPSLATE_LEAD_ORE.getDefaultState(),
                     9))
             .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.fixed(Integer.parseInt("0")), YOffset.fixed(Integer.parseInt("48")))))
                     .spreadHorizontally()

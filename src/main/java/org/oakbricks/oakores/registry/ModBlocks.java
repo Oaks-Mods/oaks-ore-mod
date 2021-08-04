@@ -13,7 +13,7 @@ import org.oakbricks.oakores.blocks.PurpiOre;
 
 import static org.oakbricks.oakores.OakOres.MOD_ID;
 
-public class BlockClass {
+public class ModBlocks {
 
     public static final Block PURPI_BLOCK = new Block(FabricBlockSettings.of(Material.METAL, MapColor.PURPLE).breakByTool(FabricToolTags.PICKAXES).strength(6.5f, 10.5f).breakByTool(FabricToolTags.PICKAXES, 3).requiresTool().sounds(BlockSoundGroup.METAL));
 

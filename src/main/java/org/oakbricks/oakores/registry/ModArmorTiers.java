@@ -6,7 +6,7 @@ import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 
-public class ArmorClass implements ArmorMaterial {
+public class ModArmorTiers implements ArmorMaterial {
     private static final int[] BASE_DURABILITY = new int[] {16, 21, 19, 18};
     private static final int[] PROTECTION_VALUES = new int[] {3, 6, 7, 4};
 
@@ -32,7 +32,7 @@ public class ArmorClass implements ArmorMaterial {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(ItemClass.PURPI);
+        return Ingredient.ofItems(ModItems.PURPI);
     }
 
     @Override

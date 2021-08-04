@@ -10,10 +10,10 @@ import org.oakbricks.oakores.registry.custom.LeadRockItem;
 
 import static org.oakbricks.oakores.OakOres.*;
 
-public class ItemClass {
+public class ModItems {
 
 
-    public static final ArmorMaterial PURPI_ARMOR_MATERIAL = new ArmorClass();
+    public static final ArmorMaterial PURPI_ARMOR_MATERIAL = new ModArmorTiers();
     public static final Item PURPI = new Item(new FabricItemSettings().group(OakOres.OAKORES_ITEM_GROUP));
     public static final Item LEAD_ROCK = new LeadRockItem(new FabricItemSettings().group(OakOres.OAKORES_ITEM_GROUP));
     public static final Item PURPI_HELMET = new ArmorItem(PURPI_ARMOR_MATERIAL, EquipmentSlot.HEAD, new Item.Settings().group(OakOres.OAKORES_ITEM_GROUP));
@@ -32,11 +32,11 @@ public class ItemClass {
 
     public static void registerBlockItems() {
 
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "purpi_block"), new BlockItem(BlockClass.PURPI_BLOCK, new FabricItemSettings().group(OakOres.OAKORES_ITEM_GROUP)));
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "purpi_ore"), new BlockItem(BlockClass.PURPI_ORE, new FabricItemSettings().group(OakOres.OAKORES_ITEM_GROUP)));
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "lead_ore"), new BlockItem(BlockClass.LEAD_ORE, new FabricItemSettings().group(OakOres.OAKORES_ITEM_GROUP)));
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "deepslate_lead_ore"), new BlockItem(BlockClass.DEEPSLATE_LEAD_ORE, new FabricItemSettings().group(OakOres.OAKORES_ITEM_GROUP)));
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "lead_block"), new BlockItem(BlockClass.LEAD_BLOCK, new FabricItemSettings().group(OakOres.OAKORES_ITEM_GROUP)));
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "purpi_block"), new BlockItem(ModBlocks.PURPI_BLOCK, new FabricItemSettings().group(OakOres.OAKORES_ITEM_GROUP)));
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "purpi_ore"), new BlockItem(ModBlocks.PURPI_ORE, new FabricItemSettings().group(OakOres.OAKORES_ITEM_GROUP)));
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "lead_ore"), new BlockItem(ModBlocks.LEAD_ORE, new FabricItemSettings().group(OakOres.OAKORES_ITEM_GROUP)));
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "deepslate_lead_ore"), new BlockItem(ModBlocks.DEEPSLATE_LEAD_ORE, new FabricItemSettings().group(OakOres.OAKORES_ITEM_GROUP)));
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "lead_block"), new BlockItem(ModBlocks.LEAD_BLOCK, new FabricItemSettings().group(OakOres.OAKORES_ITEM_GROUP)));
 
     }
 

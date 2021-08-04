@@ -2,7 +2,7 @@ package org.oakbricks.oakores.tools;
 
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
-import org.oakbricks.oakores.registry.ItemClass;
+import org.oakbricks.oakores.registry.ModItems;
 
 public class PurpiToolMaterial implements ToolMaterial {
 
@@ -35,6 +35,6 @@ public class PurpiToolMaterial implements ToolMaterial {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(ItemClass.PURPI);
+        return Ingredient.ofItems(ModItems.PURPI);
     }
 }
