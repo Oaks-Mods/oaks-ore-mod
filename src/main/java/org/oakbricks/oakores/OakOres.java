@@ -3,27 +3,12 @@ package org.oakbricks.oakores;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
-import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
-import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.structure.rule.BlockMatchRuleTest;
 import net.minecraft.text.LiteralText;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.BuiltinRegistries;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.RegistryKey;
-import net.minecraft.world.gen.GenerationStep;
-import net.minecraft.world.gen.YOffset;
-import net.minecraft.world.gen.decorator.Decorator;
-import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.OreFeatureConfig;
-import net.minecraft.world.gen.heightprovider.UniformHeightProvider;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.oakbricks.oakores.config.ModConfig;
@@ -36,9 +21,6 @@ import static org.oakbricks.oakores.registry.BlockClass.registerBlocks;
 import static org.oakbricks.oakores.registry.ItemClass.*;
 import static org.oakbricks.oakores.registry.ModWorldGen.registerWorldGenFeatures;
 import static org.oakbricks.oakores.tools.RegisterTools.registerTools;
-//import static org.oakbricks.oakores.util.OreClass.*;
-
-//don't remove these you'll break most of the mod
 
 public class OakOres implements ModInitializer {
 
