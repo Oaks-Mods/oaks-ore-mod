@@ -16,21 +16,34 @@ public class ModConfig implements ConfigData {
     public boolean enableNetherOres = true;
 
     @ConfigEntry.Gui.RequiresRestart
-    public int purpiOreGenRetries = 10;
+    public int purpiAmount = 6;
 
     @ConfigEntry.Gui.RequiresRestart
-    public int maxPurpiGenHeight = 28;
+    public int purpiMaxHeight = 28;
 
     @ConfigEntry.Gui.RequiresRestart
     public int purpiMinHeight = 5;
 
     @ConfigEntry.Gui.RequiresRestart
-    public int leadOreGenRetries = 25;
+    public int purpiVeinSize = 10;
 
     @ConfigEntry.Gui.RequiresRestart
-    public int maxLeadGenHeight = 256;
+    public int leadAmount = 25;
 
     @ConfigEntry.Gui.RequiresRestart
-    public int minLeadGenHeight = 0;
+    public int leadVeinSize = 16;
+
+    @ConfigEntry.Gui.RequiresRestart
+    public int leadMaxHeight = 256;
+
+    //@ConfigEntry.Gui.RequiresRestart
+    //public int minLeadGenHeight = 0;
+
+    @ConfigEntry.Gui.RequiresRestart
+    public int deepslateLeadAmount = 25;
+
+    @ConfigEntry.Gui.RequiresRestart
+
+    public int deepslateLeadMaxHeight = 256;
 
 }

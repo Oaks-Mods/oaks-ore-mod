@@ -1,4 +1,4 @@
-package org.oakbricks.oakores.registry;
+package org.oakbricks.oakores.init;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.EquipmentSlot;
@@ -6,7 +6,7 @@ import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.oakbricks.oakores.OakOres;
-import org.oakbricks.oakores.registry.custom.LeadRockItem;
+import org.oakbricks.oakores.init.custom.LeadRockItem;
 
 import static org.oakbricks.oakores.OakOres.*;
 

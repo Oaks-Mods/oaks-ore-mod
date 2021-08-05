@@ -2,7 +2,7 @@ package org.oakbricks.oakores.tools;
 
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
-import org.oakbricks.oakores.registry.ModItems;
+import org.oakbricks.oakores.init.ModItems;
 
 public class PurpiToolMaterial implements ToolMaterial {
 

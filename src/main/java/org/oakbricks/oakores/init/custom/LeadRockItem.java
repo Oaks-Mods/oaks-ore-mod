@@ -1,4 +1,4 @@
-package org.oakbricks.oakores.registry.custom;
+package org.oakbricks.oakores.init.custom;
 
 //import net.minecraft.entity.effect.StatusEffectInstance;
 //import net.minecraft.entity.effect.StatusEffects;

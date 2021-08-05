@@ -1,4 +1,4 @@
-package org.oakbricks.oakores.registry;
+package org.oakbricks.oakores.init;
 
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
@@ -16,6 +16,7 @@ import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.heightprovider.UniformHeightProvider;
+import org.oakbricks.oakores.OakOres;
 
 import static org.oakbricks.oakores.OakOres.MOD_ID;
 
@@ -38,10 +39,10 @@ public class ModWorldGen {
             .configure(new OreFeatureConfig(
                     new BlockMatchRuleTest(Blocks.DEEPSLATE), // base block is endstone in the end biomes
                     ModBlocks.DEEPSLATE_LEAD_ORE.getDefaultState(),
-                    9))
+                    OakOres.CONFIG.deepslateLeadAmount))
             .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.fixed(Integer.parseInt("0")), YOffset.fixed(Integer.parseInt("48")))))
                     .spreadHorizontally()
-                    .repeat(10));
+                    .repeat(OakOres.CONFIG.deepslateLeadAmount));
 
     public static void registerWorldGenFeatures() {
         //Registers Purpi Ore world gen

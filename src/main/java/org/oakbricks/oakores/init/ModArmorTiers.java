@@ -1,4 +1,4 @@
-package org.oakbricks.oakores.registry;
+package org.oakbricks.oakores.init;
 
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
