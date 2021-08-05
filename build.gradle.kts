@@ -10,9 +10,6 @@ version = modVersion
 val mavenGroup: String by project
 group = mavenGroup
 minecraft {}
-loom {
-    accessWidenerPath.set(file("src/main/resources/oakores.aw"))
-}
 repositories {
     maven("https://maven.shedaniel.me/")
     maven("https://maven.terraformersmc.com/")

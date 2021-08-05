@@ -15,7 +15,6 @@
 
   "license": "GPL-3.0",
   "icon": "assets/oakores/icon.png",
-  "accessWidener" : "oakores.aw",
 
   "environment": "*",
   "entrypoints": {
