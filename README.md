@@ -1,7 +1,7 @@
 # Oak's Ore Mod (Now updated for 1.17)
 ##### insert epic subtitle here!
 
-[Forge port](https://github.com/OakBricks/oak-ore-mod-forge)
+[Forge port](https://github.com/OakBricks/oaks-ore-mod-forge)
 
 This is a Fabric Mod for 1.17 (no snapshots! must wait for full relase for fabric api to stable!!!)
 
