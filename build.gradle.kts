@@ -10,10 +10,12 @@ version = modVersion
 val mavenGroup: String by project
 group = mavenGroup
 minecraft {}
+loom {
+    accessWidenerPath.set(file("src/main/resources/oakores.aw"))
+}
 repositories {
     maven("https://maven.shedaniel.me/")
     maven("https://maven.terraformersmc.com/")
-    maven("https://maven.blamejared.com")
 }
 dependencies {
     val minecraftVersion: String by project
@@ -30,8 +32,6 @@ dependencies {
     }
     val modMenuVersion: String by project
     modImplementation("com.terraformersmc:modmenu:$modMenuVersion")
-    val patchouliVersion: String by project
-    modImplementation("vazkii.patchouli:Patchouli:$patchouliVersion")
 }
 tasks {
     val javaVersion = JavaVersion.VERSION_16
