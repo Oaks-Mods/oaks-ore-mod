@@ -80,7 +80,6 @@ public class OakOres implements ModInitializer {
 //			.build();
 
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public void onInitialize() {
         //FOR CONTRIBUTORS: please make at least 90% of modified classes/voids with names that are easy to understand!
