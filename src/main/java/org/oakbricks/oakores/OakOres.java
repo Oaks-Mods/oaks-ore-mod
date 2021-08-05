@@ -13,10 +13,10 @@ import org.apache.logging.log4j.Logger;
 import org.oakbricks.oakores.config.ModConfig;
 import org.oakbricks.oakores.init.ModBlocks;
 
-import static org.oakbricks.oakores.init.ModBlocks.registerBlocks;
+import static org.oakbricks.oakores.init.ModBlocks.*;
 import static org.oakbricks.oakores.init.ModItems.*;
 import static org.oakbricks.oakores.init.ModWorldGen.registerWorldGenFeatures;
-import static org.oakbricks.oakores.tools.RegisterTools.registerTools;
+import static org.oakbricks.oakores.tools.RegisterTools.*;
 
 public class OakOres implements ModInitializer {
 
@@ -89,9 +89,8 @@ public class OakOres implements ModInitializer {
 		registerBlockItems();
 		registerArmorItems();
         registerTools();
-        if (FabricLoader.getInstance().isModLoaded("patchouli")) {
 
-		}
+
         LOGGER.info("OakOres - Refabricated has Initialized");
 	}
 }

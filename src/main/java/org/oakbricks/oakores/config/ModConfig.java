@@ -3,6 +3,7 @@ package org.oakbricks.oakores.config;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
+import me.shedaniel.cloth.clothconfig.shadowed.blue.endless.jankson.Comment;
 import org.oakbricks.oakores.OakOres;
 
 @Config(name = OakOres.MOD_ID + "_config")
@@ -43,7 +44,11 @@ public class ModConfig implements ConfigData {
     public int deepslateLeadAmount = 25;
 
     @ConfigEntry.Gui.RequiresRestart
-
     public int deepslateLeadMaxHeight = 256;
+
+    @ConfigEntry.Gui.RequiresRestart
+    @ConfigEntry.Gui.Excluded
+    @Comment("Force enables Enderite support no matter what, false by default")
+    public boolean forceEnableEnderite = false;
 
 }
