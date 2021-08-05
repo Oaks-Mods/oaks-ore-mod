@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "oakores:block/lead_deepslate_ore"
+      "model": "oakores:block/deepslate_lead_ore"
     }
   }
 }
