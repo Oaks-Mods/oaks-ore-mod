@@ -1,12 +1,17 @@
 package org.oakbricks.oakores;
 
 import me.shedaniel.autoconfig.AutoConfig;
+import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.fabricmc.fabric.api.tag.TagRegistry;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -22,7 +27,9 @@ public class OakOres implements ModInitializer {
 
 	public static final String MOD_ID = "oakores";
 	public static final Logger LOGGER = LogManager.getLogger();
-    public static final ModConfig CONFIG = AutoConfig.register(ModConfig.class, Toml4jConfigSerializer::new).getConfig();
+    public static final ModConfig CONFIG = AutoConfig.register(ModConfig.class, JanksonConfigSerializer::new).getConfig();
+	public static final Tag<Block> LEAD_POISONING_BLOCKS = TagRegistry.block(new Identifier(MOD_ID, "lead_poisoning_blocks"));
+	public static final Tag<Item> LEAD_POISONING_ITEMS = TagRegistry.item(new Identifier(MOD_ID, "lead_poisoning_items"));
 
 	public static final ItemGroup OAKORES_ITEM_GROUP = FabricItemGroupBuilder.build(
 			new Identifier(MOD_ID, "oakores"),

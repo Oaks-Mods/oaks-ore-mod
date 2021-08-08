@@ -24,11 +24,11 @@ public class ModBlocks {
 
     public static final Block PURPI_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE, MapColor.STONE_GRAY).strength(3.5f, 10.25f).breakByTool(FabricToolTags.PICKAXES, 3).requiresTool().sounds(BlockSoundGroup.STONE));
 
-    public static final Block ENDERITE_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE, MapColor.STONE_GRAY).strength(3.5f, 10.25f).breakByTool(FabricToolTags.PICKAXES, 3).requiresTool().sounds(BlockSoundGroup.STONE));
+    public static final Block ENDERITE_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE, MapColor.PALE_YELLOW).strength(5.0F, 10.0F).breakByTool(FabricToolTags.PICKAXES, 3).requiresTool().sounds(BlockSoundGroup.STONE), UniformIntProvider.create(8, 16));
 
     public static final Block LEAD_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE, MapColor.STONE_GRAY).strength(4.2f, 8.3f).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().sounds(BlockSoundGroup.STONE));
 
-    public static final Block DEEPSLATE_LEAD_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE, MapColor.DEEPSLATE_GRAY).strength(8.2f, 10.5f).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().sounds(BlockSoundGroup.DEEPSLATE), new UniformIntProvider(4, 8));
+    public static final Block DEEPSLATE_LEAD_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE, MapColor.DEEPSLATE_GRAY).strength(8.2f, 10.5f).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().sounds(BlockSoundGroup.DEEPSLATE));
 
     public static final Block LEAD_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).breakByTool(FabricToolTags.PICKAXES).strength(8.5f, 17.5f).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().sounds(BlockSoundGroup.METAL));
 
@@ -42,17 +42,15 @@ public class ModBlocks {
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "deepslate_lead_ore"), DEEPSLATE_LEAD_ORE);
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "lead_block"), LEAD_BLOCK);
 
-    }
-
-    public static void registerOptionalBLocks() {
         if ((FabricLoader.getInstance().isModLoaded("enderitemod") || CONFIG.enableEnderite == false) && CONFIG.forceEnableEnderite != true) {
             OakOres.LOGGER.info("OakOres' Enderite module is not loading due to another mod providing enderite being loaded, or user has disabled enderite");
         } else {
             Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "enderite_block"), ENDERITE_BLOCK);
             Registry.register(Registry.ITEM, new Identifier(MOD_ID, "enderite_block"), new BlockItem(ENDERITE_BLOCK, new FabricItemSettings().group(OakOres.OAKORES_ITEM_GROUP)));
+            Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "enderite_ore"), ENDERITE_ORE);
+            Registry.register(Registry.ITEM, new Identifier(MOD_ID, "enderite_ore"), new BlockItem(ENDERITE_ORE, new FabricItemSettings().group(OakOres.OAKORES_ITEM_GROUP)));
         }
 
     }
-
 
 }
