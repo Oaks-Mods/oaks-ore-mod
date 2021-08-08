@@ -35,6 +35,8 @@ public class OakOres implements ModInitializer {
 			new Identifier(MOD_ID, "oakores"),
 			() -> new ItemStack(ModBlocks.PURPI_BLOCK));
 
+	//why
+
 //	public static final ItemGroup OAKORES_ITEM_GROUP = FabricItemGroupBuilder.create(
 //			new Identifier(MOD_ID, "items"))
 //			.icon(() -> new ItemStack(ModItems.PURPI))
