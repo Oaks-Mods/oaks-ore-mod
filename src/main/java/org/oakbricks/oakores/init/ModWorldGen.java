@@ -2,7 +2,9 @@ package org.oakbricks.oakores.init;
 
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.util.GlfwUtil;
 import net.minecraft.structure.rule.BlockMatchRuleTest;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
@@ -22,27 +24,37 @@ import static org.oakbricks.oakores.OakOres.MOD_ID;
 
 public class ModWorldGen {
     public static ConfiguredFeature<?, ?> PURPI_ORE_OVERWORLD = Feature.ORE
-            .configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, ModBlocks.PURPI_ORE.getDefaultState(), 6)) /* TODO: Make this configurable */
-            .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.fixed(Integer.parseInt("5")), YOffset.fixed(Integer.parseInt("28")))))) /* TODO: Make this configurable */
+            .configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, ModBlocks.PURPI_ORE.getDefaultState(), OakOres.CONFIG.purpiVeinSize))
+            .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.fixed(OakOres.CONFIG.purpiMinHeight), YOffset.fixed(OakOres.CONFIG.purpiMaxHeight))))) /* TODO: Make this configurable */
             .spreadHorizontally()
-            .repeat(Integer.parseInt("10")); //TODO: Make this configurable
+            .repeat(OakOres.CONFIG.purpiAmount);
 
     //LEAD ORE WORLD GEN
     public static ConfiguredFeature<?, ?> LEAD_ORE_OVERWORLD = Feature.ORE
-            .configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, ModBlocks.LEAD_ORE.getDefaultState(), 6)) /* TODO: Make this configurable */
-            .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.fixed(Integer.parseInt("0")), YOffset.fixed(Integer.parseInt("48")))))) /* TODO: Make this configurable */
+            .configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, ModBlocks.LEAD_ORE.getDefaultState(), OakOres.CONFIG.leadVeinSize))
+            .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.aboveBottom(0), YOffset.fixed(OakOres.CONFIG.leadMaxHeight)))))
             .spreadHorizontally()
-            .repeat(Integer.parseInt("25")); //TODO: Make this configurable
+            .repeat(OakOres.CONFIG.leadAmount);
 
     //DEEPSLATE LEAD ORE
     public static ConfiguredFeature<?, ?> LEAD_DEEPSLATE_ORE_OVERWORLD = Feature.ORE
             .configure(new OreFeatureConfig(
                     new BlockMatchRuleTest(Blocks.DEEPSLATE), // base block is endstone in the end biomes
                     ModBlocks.DEEPSLATE_LEAD_ORE.getDefaultState(),
-                    OakOres.CONFIG.deepslateLeadAmount))
-            .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.fixed(Integer.parseInt("0")), YOffset.fixed(Integer.parseInt("48")))))
+                    OakOres.CONFIG.deepLeadVeinSize))
+            .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.aboveBottom(0), YOffset.belowTop(0))))
                     .spreadHorizontally()
-                    .repeat(OakOres.CONFIG.deepslateLeadAmount));
+                    .repeat(OakOres.CONFIG.deepLeadAmount));
+
+    public static ConfiguredFeature<?, ?> ENDERITE_ORE_END = Feature.ORE
+            .configure(new OreFeatureConfig(
+                    new BlockMatchRuleTest(Blocks.END_STONE), // Base block is end stone in The End biomes
+                    ModBlocks.ENDERITE_ORE.getDefaultState(),
+                    OakOres.CONFIG.enderiteVeinSize))
+            .range(new RangeDecoratorConfig(
+                    UniformHeightProvider.create(YOffset.aboveBottom(0), YOffset.belowTop(0))))
+            .spreadHorizontally()
+            .repeat(OakOres.CONFIG.enderiteAmount);
 
     public static void registerWorldGenFeatures() {
         //Registers Purpi Ore world gen
@@ -58,5 +70,18 @@ public class ModWorldGen {
                 new Identifier(MOD_ID, "lead_ore_deepslate_overworld"));
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, oreDeepslateLeadOverWorld.getValue(), LEAD_DEEPSLATE_ORE_OVERWORLD);
         BiomeModifications.addFeature(BiomeSelectors.foundInTheEnd(), GenerationStep.Feature.UNDERGROUND_ORES, oreDeepslateLeadOverWorld);
+
+        if (!(OakOres.CONFIG.enableEnderite == false || FabricLoader.getInstance().isModLoaded("enderitemod") == true && OakOres.CONFIG.forceEnableEnderite == false)) {
+            RegistryKey<ConfiguredFeature<?, ?>> enderiteOreEnd = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY,
+                    new Identifier(MOD_ID, "enderite_ore_end"));
+            Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, enderiteOreEnd.getValue(), ENDERITE_ORE_END);
+            BiomeModifications.addFeature(BiomeSelectors.foundInTheEnd(), GenerationStep.Feature.UNDERGROUND_ORES, enderiteOreEnd);
+        } else if (OakOres.CONFIG.enableEnderite == false || FabricLoader.getInstance().isModLoaded("enderitemod") == true && OakOres.CONFIG.forceEnableEnderite == false) {
+            OakOres.LOGGER.warn("Oak Ores has tried to enable enderite ores, this warning is here because other mods providing enderite have been found or enderite support has been disabled!");
+        } else {
+            OakOres.LOGGER.fatal("Oak's Ore Mod has encountered an error whilst loading enderite ore generation, please go to the Oak's Mods Discord Server at https://discord.com/invite/DHEQZqhEyf");
+            GlfwUtil.makeJvmCrash();
+        }
+
     }
 }

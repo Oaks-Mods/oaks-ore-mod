@@ -7,11 +7,12 @@
   "item.oakores.purpi_leggings": "Purpi Leggings",
   "item.oakores.purpi_helmet": "Purpi Helmet",
   "text.autoconfig.oakores_config.option.purpiAmount": "Amount of possible purpi ores in a chunk",
-  "text.autoconfig.oakores_config.option.enableUnsupportedFeatures": "Enable Experimental Features",
   "text.autoconfig.oakores_config.option.purpiMaxHeight": "Maximum Purpi Ore Generation Height",
   "text.autoconfig.oakores_config.option.purpiMinHeight": "Minimum Purpi Ore Generation Height",
+  "text.autoconfig.oakores_config.option.purpiVeinSize": "Purpi Ore Vein Size",
+  "text.autoconfig.oakores_config.option.enableNetherOres": "Enables Nether Ores",
+  "text.autoconfig.oakores_config.option.enableEnderite": "Enables OakOres Enderite",
   "text.autoconfig.oakores_config.title": "OakOres Config",
-  "oakbricks.oakores.console.init": "Oak's Ore Mod has been Initialized!",
   "item.oakores.purpi_sword": "Purpi Sword",
   "item.oakores.purpi_shovel": "Purpi Shovel",
   "item.oakores.purpi_pickaxe": "Purpi Pickaxe",
@@ -23,5 +24,6 @@
   "block.oakores.lead_block": "Lead Block",
   "block.oakores.enderite_ore": "Enderite Ore",
   "block.oakores.enderite_block": "Enderite Block",
-  "item.oakores.enderite": "Enderite"
+  "item.oakores.enderite": "Enderite",
+  "itemGroup.oakores.oakores": "Oak's Ore Mod"
 }
