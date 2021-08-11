@@ -28,8 +28,8 @@ public class OakOres implements ModInitializer {
 	public static final String MOD_ID = "oakores";
 	public static final Logger LOGGER = LogManager.getLogger();
     public static final ModConfig CONFIG = AutoConfig.register(ModConfig.class, JanksonConfigSerializer::new).getConfig();
-	public static final Tag<Block> LEAD_POISONING_BLOCKS = TagRegistry.block(new Identifier(MOD_ID, "lead_poisoning_blocks"));
-	public static final Tag<Item> LEAD_POISONING_ITEMS = TagRegistry.item(new Identifier(MOD_ID, "lead_poisoning_items"));
+	public static final Tag<Block> LEAD_POISONING_BLOCKS = TagRegistry.block(new Identifier("c", "lead_poisoning_blocks"));
+	public static final Tag<Item> LEAD_POISONING_ITEMS = TagRegistry.item(new Identifier("c", "lead_poisoning_items"));
 
 	public static final ItemGroup OAKORES_ITEM_GROUP = FabricItemGroupBuilder.build(
 			new Identifier(MOD_ID, "oakores"),

@@ -1,6 +1,7 @@
 package org.oakbricks.oakores.init;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
@@ -15,6 +16,7 @@ public class ModItems {
 
     public static final ArmorMaterial PURPI_ARMOR_MATERIAL = new ModArmorTiers();
     public static final Item PURPI = new Item(new FabricItemSettings().group(OakOres.OAKORES_ITEM_GROUP));
+    public static final Item ENDERITE = new Item(new FabricItemSettings().group(OakOres.OAKORES_ITEM_GROUP));
     public static final Item LEAD_ROCK = new LeadRockItem(new FabricItemSettings().group(OakOres.OAKORES_ITEM_GROUP));
     public static final Item PURPI_HELMET = new ArmorItem(PURPI_ARMOR_MATERIAL, EquipmentSlot.HEAD, new Item.Settings().group(OakOres.OAKORES_ITEM_GROUP));
     public static final Item PURPI_CHESTPLATE = new ArmorItem(PURPI_ARMOR_MATERIAL, EquipmentSlot.CHEST, new Item.Settings().group(OakOres.OAKORES_ITEM_GROUP));
@@ -25,6 +27,11 @@ public class ModItems {
 
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "purpi"), PURPI);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "lead_rock"), LEAD_ROCK);
+        if ((FabricLoader.getInstance().isModLoaded("enderitemod") || CONFIG.enableEnderite == false) && CONFIG.forceEnableEnderite != true) {
+            OakOres.LOGGER.info("OakOres' Enderite module is not loading due to another mod providing enderite being loaded, or user has disabled enderite");
+        } else {
+            Registry.register(Registry.ITEM, new Identifier(MOD_ID, "enderite"), ENDERITE);
+        }
 
 
     }

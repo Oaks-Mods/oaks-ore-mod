@@ -9,16 +9,16 @@ import static org.oakbricks.oakores.OakOres.MOD_ID;
 
 public class RegisterTools {
 
-    public static ToolItem PURPI_SWORD = new SwordItem(PurpiToolMaterial.INSTANCE, 5, -2f, new Item.Settings().group(OakOres.OAKORES_ITEM_GROUP));
+    public static ToolItem PURPI_SWORD = new SwordItem(PurpiToolMaterial.INSTANCE, 4, -2.4f, new Item.Settings().group(OakOres.OAKORES_ITEM_GROUP));
 
-    public static ToolItem PURPI_SPADE = new ShovelItem(PurpiToolMaterial.INSTANCE, -5f, 2f, new Item.Settings().group(OakOres.OAKORES_ITEM_GROUP));
+    public static ToolItem PURPI_SPADE = new ShovelItem(PurpiToolMaterial.INSTANCE, 2f, -3f, new Item.Settings().group(OakOres.OAKORES_ITEM_GROUP));
 
     //Axes, Hoes, and Pickaxes have to be a custom class because Mojang protected the vanilla classes
-    public static ToolItem PURPI_HOE = new CustomHoeItem(PurpiToolMaterial.INSTANCE, -4f, -2F, new Item.Settings().group(OakOres.OAKORES_ITEM_GROUP));
+    public static ToolItem PURPI_HOE = new CustomHoeItem(PurpiToolMaterial.INSTANCE, -3f, 0F, new Item.Settings().group(OakOres.OAKORES_ITEM_GROUP));
 
-    public static ToolItem PURPI_AXE = new CustomAxeItem(PurpiToolMaterial.INSTANCE, 2f, -1f, new Item.Settings().group(OakOres.OAKORES_ITEM_GROUP));
+    public static ToolItem PURPI_AXE = new CustomAxeItem(PurpiToolMaterial.INSTANCE, 6f, -3f, new Item.Settings().group(OakOres.OAKORES_ITEM_GROUP));
 
-    public static ToolItem PURPI_PICKAXE = new CustomPickaxeItem(PurpiToolMaterial.INSTANCE, -2, 5f, new Item.Settings().group(OakOres.OAKORES_ITEM_GROUP));
+    public static ToolItem PURPI_PICKAXE = new CustomPickaxeItem(PurpiToolMaterial.INSTANCE, 2, -3f, new Item.Settings().group(OakOres.OAKORES_ITEM_GROUP));
 
     public static void registerTools() {
 
