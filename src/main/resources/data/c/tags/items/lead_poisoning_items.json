@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "oakores:lead_rock",
-    "oakores:lead_block"
+    "oakores:lead_block",
+    "oakores:lead_ore"
   ]
 }
