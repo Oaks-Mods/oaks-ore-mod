@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "oakores:purpi_ore",
+    "oakores:lead_ore",
+    "oakores:enderite_ore",
+    "oakores:lead_block",
+    "oakores:purpi_block",
+    "oakores:enderite_block"
+  ]
+}

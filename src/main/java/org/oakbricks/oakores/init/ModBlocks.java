@@ -22,17 +22,19 @@ public class ModBlocks {
 
     public static final Block PURPI_BLOCK = new Block(FabricBlockSettings.of(Material.METAL, MapColor.PURPLE).breakByTool(FabricToolTags.PICKAXES).strength(6.5f, 10.5f).breakByTool(FabricToolTags.PICKAXES, 3).requiresTool().sounds(BlockSoundGroup.METAL));
 
-    public static final Block PURPI_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE, MapColor.STONE_GRAY).strength(3.5f, 10.25f).breakByTool(FabricToolTags.PICKAXES, 3).requiresTool().sounds(BlockSoundGroup.STONE));
+    public static final Block PURPI_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE, MapColor.STONE_GRAY).strength(3.0F, 3.0F).breakByTool(FabricToolTags.PICKAXES, 3).requiresTool().sounds(BlockSoundGroup.STONE));
 
-    public static final Block ENDERITE_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE, MapColor.PALE_YELLOW).strength(5.0F, 10.0F).breakByTool(FabricToolTags.PICKAXES, 3).requiresTool().sounds(BlockSoundGroup.STONE), UniformIntProvider.create(8, 16));
+    public static final Block ENDERITE_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE, MapColor.PALE_YELLOW).strength(3.0F, 3.0F).breakByTool(FabricToolTags.PICKAXES, 3).requiresTool().sounds(BlockSoundGroup.STONE), UniformIntProvider.create(8, 16));
 
-    public static final Block LEAD_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE, MapColor.STONE_GRAY).strength(4.2f, 8.3f).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().sounds(BlockSoundGroup.STONE));
+    public static final Block LEAD_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE, MapColor.STONE_GRAY).strength(3.0F, 3.0F).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().sounds(BlockSoundGroup.STONE));
 
     public static final Block DEEPSLATE_LEAD_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE, MapColor.DEEPSLATE_GRAY).strength(8.2f, 10.5f).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().sounds(BlockSoundGroup.DEEPSLATE));
 
     public static final Block LEAD_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).breakByTool(FabricToolTags.PICKAXES).strength(8.5f, 17.5f).breakByTool(FabricToolTags.PICKAXES, 2).requiresTool().sounds(BlockSoundGroup.METAL));
 
     public static final Block ENDERITE_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).strength(8.5f, 17.5f).breakByTool(FabricToolTags.PICKAXES, 3).requiresTool().sounds(BlockSoundGroup.METAL));
+
+    public static final Block LITHIUM_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).strength(3.0F, 3.0F), UniformIntProvider.create(2, 2));
 
     public static void registerBlocks() {
 

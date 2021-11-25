@@ -1,7 +1,7 @@
 plugins {
-    id 'fabric-loom' version '0.9-SNAPSHOT'
+    id 'fabric-loom' version '0.10-SNAPSHOT'
     id 'maven-publish'
-    id "com.modrinth.minotaur" version "1.2.1"
+//    id "com.modrinth.minotaur" version "1.2.1"
 }
 
 
@@ -74,13 +74,7 @@ jar {
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            // add all the jars that should be included when publishing to maven
-            artifact(remapJar) {
-                builtBy remapJar
-            }
-            artifact(sourcesJar) {
-                builtBy remapSourcesJar
-            }
+            from components.java
         }
     }
 }
@@ -93,20 +87,20 @@ repositories {
     // retrieving dependencies.
 }
 
-import com.modrinth.minotaur.TaskModrinthUpload
-
-task publishModrinth (type: TaskModrinthUpload) {
-
-    onlyIf {
-        System.getenv("MODRINTH_TOKEN") // Only attempt to run this task if the MODRINTH variable is set, otherwise SKIP it
-    }
-
-    String fileContents = new File('changelog.md').getText('UTF-8')
-    token = System.getenv("MODRINTH_TOKEN") // Use an environment property if releasing your source code on GitHub!
-    projectId = 'h7tRP5jU' // The ID of the modrinth project, slugs will not work.
-    versionNumber = project.mod_version + "_from_gradle"
-    uploadFile = remapJar
-    addGameVersion('1.17.1')
-    addLoader('fabric')
-    //changelog("")
-}
+//import com.modrinth.minotaur.TaskModrinthUpload
+//
+//task publishModrinth (type: TaskModrinthUpload) {
+//
+//    onlyIf {
+//        System.getenv("MODRINTH_TOKEN") // Only attempt to run this task if the MODRINTH variable is set, otherwise SKIP it
+//    }
+//
+//    String fileContents = new File('changelog.md').getText('UTF-8')
+//    token = System.getenv("MODRINTH_TOKEN") // Use an environment property if releasing your source code on GitHub!
+//    projectId = 'h7tRP5jU' // The ID of the modrinth project, slugs will not work.
+//    versionNumber = project.mod_version + "_from_gradle"
+//    uploadFile = remapJar
+//    addGameVersion('1.17.1')
+//    addLoader('fabric')
+//    //changelog("")
+//}
