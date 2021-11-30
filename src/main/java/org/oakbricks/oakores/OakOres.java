@@ -18,7 +18,7 @@ import org.oakbricks.oakores.init.ModBlocks;
 
 import static org.oakbricks.oakores.init.ModBlocks.*;
 import static org.oakbricks.oakores.init.ModItems.*;
-import static org.oakbricks.oakores.init.ModWorldGen.registerWorldGenFeatures;
+import static org.oakbricks.oakores.init.ModConfiguredFeatures.registerConfiguredFeatures;
 import static org.oakbricks.oakores.tools.RegisterTools.*;
 
 public class OakOres implements ModInitializer {
@@ -36,7 +36,7 @@ public class OakOres implements ModInitializer {
 	@Override
 	public void onInitialize() {
         //FOR CONTRIBUTORS: please make at least 90% of modified classes/voids with names that are easy to understand!
-		registerWorldGenFeatures();
+		registerConfiguredFeatures();
 		registerItems();
 		registerBlocks();
 		registerBlockItems();
