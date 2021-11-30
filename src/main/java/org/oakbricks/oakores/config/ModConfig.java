@@ -11,14 +11,6 @@ import org.oakbricks.oakores.OakOres;
 public class ModConfig implements ConfigData {
 
     @ConfigEntry.Gui.RequiresRestart
-    @Comment("Enables OakOres' Enderite support")
-    public boolean enableEnderite = true;
-
-    @ConfigEntry.Gui.RequiresRestart
-    @Comment("Enables OakOres' ability to generate ores in the nether")
-    public boolean enableNetherOres = true;
-
-    @ConfigEntry.Gui.RequiresRestart
     @Comment("Amount of Purpi Ore in a world, default value is 10, maximum value of 64")
     public int purpiAmount = 6;
 
@@ -53,11 +45,6 @@ public class ModConfig implements ConfigData {
     @ConfigEntry.Gui.RequiresRestart
     @Comment("Size of Deepslate Lead Ore veins, default value is 9, maximum value of 64.")
     public int deepLeadVeinSize = 9;
-
-    @ConfigEntry.Gui.RequiresRestart
-    @ConfigEntry.Gui.Excluded
-    @Comment("Force enables Enderite support no matter what, false by default")
-    public boolean forceEnableEnderite = false;
 
     @ConfigEntry.Gui.RequiresRestart
     @Comment("Amount of Enderite Ore in a world, default value is 8, maximum value of 64.")
