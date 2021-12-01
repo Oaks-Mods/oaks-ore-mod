@@ -18,7 +18,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.UUID;
 
-//ULTRA CURSED CODE GOES HERE!!! BEWARE CONTRIBUTORS
 @Mixin(ArmorItem.class)
 public abstract class ArmorItemMixin {
     @Shadow @Final private static UUID[] MODIFIERS;

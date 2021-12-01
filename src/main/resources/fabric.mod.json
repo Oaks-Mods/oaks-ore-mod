@@ -4,7 +4,7 @@
   "version": "${version}",
 
   "name": "Oak's Ore Mod",
-  "description": "very simple ore mod for fabric 1.17, remake of my mcreator mod",
+  "description": "very simple ore mod for fabric, remake of my mcreator mod",
   "authors": [
     "OakBricks"
   ],
@@ -13,16 +13,13 @@
     "sources": "https://github.com/OakBricks/oaks-ore-mod"
   },
 
-  "license": "GPL-3.0",
+  "license": "LGPL-3.0",
   "icon": "assets/oakores/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
       "org.oakbricks.oakores.OakOres"
-    ],
-    "modmenu": [
-      "org.oakbricks.oakores.config.ModMenuConfig"
     ]
   },
   "mixins": [
@@ -32,8 +29,7 @@
   "depends": {
     "fabricloader": ">=0.11.6",
     "fabric": "*",
-    "minecraft": "1.17.x",
-    "java": ">=16",
-    "cloth-config2": "*"
+    "minecraft": "1.18.x",
+    "java": ">=17"
   }
 }

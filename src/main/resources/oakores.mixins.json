@@ -6,7 +6,8 @@
   "mixins": [
     "ArmorItemMixin",
     "EntityAccessor",
-    "PlayerEntityMixin"
+    "PlayerEntityMixin",
+    "DefaultBiomeFeaturesMixin"
   ],
   "client": [
   ],

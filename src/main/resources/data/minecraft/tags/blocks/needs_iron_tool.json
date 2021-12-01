@@ -3,6 +3,7 @@
   "values": [
     "oakores:lead_block",
     "oakores:lead_ore",
+    "oakores:deepslate_lead_ore",
     "oakores:enderite_block",
     "oakores:enderite_ore"
   ]
