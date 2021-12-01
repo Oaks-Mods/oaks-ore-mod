@@ -23,5 +23,7 @@ public class ModConfiguredFeatures {
     public static void registerConfiguredFeatures() {
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(MOD_ID, "purpi_ore_overworld"), PURPI_ORE_OVERWORLD);
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(MOD_ID, "lead_ore_overworld"), LEAD_ORE_OVERWORLD);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(MOD_ID, "deepslate_lead_ore_overworld"), DEEPSLATE_LEAD_ORE_OVERWORLD);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(MOD_ID, "enderite_ore_end"), ENDERITE_ORE_END);
     }
 }

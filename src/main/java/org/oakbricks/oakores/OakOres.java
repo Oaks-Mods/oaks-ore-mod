@@ -40,8 +40,6 @@ public class OakOres implements ModInitializer {
 		registerBlockItems();
 		registerArmorItems();
         registerTools();
-
-
-        LOGGER.info("OakOres - Refabricated has Initialized");
+        LOGGER.info("Oak's Ore Mode has Initialized");
 	}
 }
